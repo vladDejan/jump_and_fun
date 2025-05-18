@@ -1,0 +1,161 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+
+
+@theme {
+  /* Color Palette */
+  --color-primary: #FFBED2;
+  --color-secondary: #E46288;
+  --color-tertiary: #D9D9D9;
+  --color-quaternary: #E1E6EF;
+  --color-quinary: #1D2433;
+  /* Screen Breakpoints */
+  --breakpoint-xs: 21rem; /*Manji telefoni*/
+  --breakpoint-sm: 30rem; /*Veci telefoni*/
+  --breakpoint-md: 70rem; /*Tableti*/
+  --breakpoint-lg: 80rem; /*Laptopovi*/
+  --breakpoint-xl: 120rem; /*Desktopi*/
+}
+
+:root {
+  font-family: "Bodoni Moda", serif;
+}
+/* TEXT STYLES */
+p{
+  font-size: 20px;
+  font-weight: 500;
+  color:  #1D2433;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 600;
+  color: #1E1E1E;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #E1E6EF;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* Uklanja default stilove browsera */
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* Uklanja default stilove browsera */
+}
+
+.btn-text {
+  font-size: 22px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.btn-text-sec {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.nav-text {
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #1E1E1E;
+}
+
+.nav-text:hover {
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #FFBED2;
+}
+
+.label-text {
+  font-size: 16px !important;
+  color: #1E1E1E;
+  font-weight: bold;
+}
+
+.pinkFont {
+  color: #E46288 !important;
+}
+
+/* HomeBackground Styles */
+.homebg {
+  background: url('./assets/images/homeImg.png') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.mobHomebg {
+  background: url('./assets/images/mobileHomeImg.png') no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+/* SVG Img active styles */
+.svg-active {
+  color: #1E1E1E;
+  transition: color 0.2s ease;
+}
+.svgActive {
+  color: #FFBED2;
+}
+
+/* DOT Active */
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.active-dot {
+  background-color: #E46288;
+  transform: scale(1.5);
+}
+
+/* BG Icon */
+.bg-icon {
+  background: url("./assets/images/castleBg.png") no-repeat center;
+  height: 100vh;
+  width: auto;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(28, 1fr);
+  gap: 1px;
+  width: 100%;
+}
+
+
