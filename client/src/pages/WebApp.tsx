@@ -1,4 +1,3 @@
-import React from "react";
 import { Home } from "./Home";
 import { ServicesPage } from "./Service";
 import { ReservationPage } from "../components/Reservation";
