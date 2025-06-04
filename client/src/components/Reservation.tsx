@@ -15,9 +15,6 @@ import { Progress } from "./ui/progress";
 import "../index.css";
 import { Calendar } from "./ui/calendar";
 import NavLogo from "../assets/images/logo.svg";
-import CastleForm from "../assets/images/castle-form.png";
-import BubbleForm from "../assets/images/bubble-form.png";
-import CastleBubbleForm from "../assets/images/castle-bubble-form.png";
 import { CitySelect } from "./CitySelect";
 import { Checkbox } from "./ui/checkbox";
 import {

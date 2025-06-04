@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import NavLogo from "../assets/images/logo.svg";
 
 export const NavBar = () => {
