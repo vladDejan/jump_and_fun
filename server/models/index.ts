@@ -11,6 +11,7 @@ const db = new Sequelize(
   process.env.DB_PASSWORD || "22djema22",
   {
     host: process.env.DB_HOST || "localhost",
+    port: parseInt(process.env.DB_PORT || "3306", 10),
     dialect: "mysql",
     logging: false, // Isključi logovanje SQL upita (opciono)
   }

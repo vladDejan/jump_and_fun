@@ -16,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Sinhronizuje modele sa bazom podataka
-db.sync({ force: true}) // Neće brisati postojeće tabele prilikom pokretanja
+db.sync() // Neće brisati postojeće tabele prilikom pokretanja
   .then(() => {
     console.log("Connected to the Sequelize database successfully");
   })
@@ -28,6 +28,7 @@ db.sync({ force: true}) // Neće brisati postojeće tabele prilikom pokretanja
 db.authenticate()
   .then(() => {
     console.log("Connection has been established successfully.");
+    return db.sync();
   })
   .catch((err) => {
     console.error("Unable to connect to the database:", err);
