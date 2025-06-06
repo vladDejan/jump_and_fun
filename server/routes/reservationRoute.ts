@@ -69,7 +69,7 @@ router.post(
       // Opcije za slanje email-a
       const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: "dejanvladimirov@gmail.com",
+        to: "jumpandfunserbia@gmail.com",
         subject: "Nova Rezervacija",
         html: htmlContent,
       };
