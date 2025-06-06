@@ -14,7 +14,10 @@ const app = express();
 const port: number = 5000;
 
 // Omogućava CORS kako bi aplikacija bila dostupna iz različitih domena
-app.use(cors());
+app.use(cors({
+  origin: "https://jump-and-fun-auvq.vercel.app", // <-- zameni sa pravim URL-om
+  credentials: true,
+}));
 app.use(bodyParser.json());
 
 // Sinhronizuje modele sa bazom podataka
