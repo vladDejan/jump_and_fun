@@ -22,6 +22,17 @@ router.post(
         specialRequests,
       } = req.body;
 
+       await Reservation.create({
+    name,
+    email,
+    phone,
+    city,
+    variant,
+    date,
+    decorations,
+    specialRequests,
+  });
+
       const formattedDate = new Date(date).toLocaleDateString("sr-RS", {
         year: "numeric",
         month: "long",

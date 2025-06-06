@@ -7,6 +7,8 @@ import reservationRoute from "./routes/reservationRoute";//Rute baze podataka
 //Middleware za parsiranje JSON podataka iz HTTP zahteva.
 import bodyParser from "body-parser";
 
+import "./models/Reservation";
+
 // Kreiranje Express aplikacije
 const app = express();
 const port: number = 5000;
