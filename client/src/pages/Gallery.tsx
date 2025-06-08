@@ -12,6 +12,7 @@ import gal15 from "./../assets/images/Gallery/gallery15.jpg";
 import gal16 from "./../assets/images/Gallery/gallery16.jpg";
 import galVideo from "./../assets/images/Gallery/video0.mp4";
 import "../index.css";
+import { useEffect, useRef } from "react";
 
 type GridItem = {
   col: number;
@@ -51,6 +52,28 @@ const secondGroup = [
 ];
 
 export const Gallery = () => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  
+    useEffect(() => {
+      const video = videoRef.current;
+      if (!video) return;
+  
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        },
+        { threshold: 0.5 }
+      );
+  
+      observer.observe(video);
+  
+      return () => observer.disconnect();
+    }, []);
+
   return (
     <div className="p-4 space-y-2">
       {/* Dummy div sa svim klasama koje su potrebne Tailwindu */}
@@ -91,10 +114,13 @@ export const Gallery = () => {
       {/* Video sekcija */}
       <div>
         <video
+        ref={videoRef}
           src={galVideo}
           autoPlay
           muted
           loop
+          playsInline
+          webkit-playsinline="true"
           className="w-full h-auto rounded-lg shadow-md"
         />
       </div>

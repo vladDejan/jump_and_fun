@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Form,
   FormControl,
@@ -68,6 +68,29 @@ export const ReservationPage: React.FC = () => {
     },
   });
 
+  
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(video);
+
+    return () => observer.disconnect();
+  }, []);
+
   const onSubmit = async (data: ReservationFormData) => {
     try {
       await submitReservation(data);
@@ -93,10 +116,13 @@ export const ReservationPage: React.FC = () => {
       <div className="w-full md:p-0 xs:p-4 relative h-full xs:justify-center xs:items-center md:items-center flex md:flex-row xs:flex-col">
       <div className="md:w-1/4 xs:w-full h-3/4 flex relative md:rounded-bl-3xl md:rounded-tl-3xl md:rounded-tr-none xs:rounded-tl-3xl xs:rounded-tr-3xl md:justify-center md:items-start xs:justify-center overflow-hidden">
         <video
+        ref={videoRef}
           src={galVideo1}
           autoPlay
           muted
           loop
+          playsInline
+          webkit-playsinline="true"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
         <div className="absolute inset-0 backdrop-brightness-125 z-10" />
