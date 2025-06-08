@@ -8,7 +8,7 @@ export const Home = () => {
         
         <NavBar />
       <div className="flex-1 flex justify-center items-center mb-16">
-        <div className="xs:w-full xs:p-6 md:w-1/2">
+        <div className="xs:w-full xs:p-2 md:w-1/2">
           <div className="md:hidden xs:flex xs:items-center xs:justify-center xs:mb-6">
             <img className="w-24" src={NavLogo} alt="logo_img" />
           </div>

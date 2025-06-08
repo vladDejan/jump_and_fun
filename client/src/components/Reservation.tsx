@@ -106,17 +106,17 @@ export const ReservationPage: React.FC = () => {
           <span className="text-secondary z-20">F</span>un
         </h2>
       </div>
-      <div className="md:w-1/2 xs:w-full h-3/4 flex flex-col relative rounded-3xl md:-ml-5 xs:-mt-5 md:mt-0 z-20 drop-shadow-md bg-quaternary items-center md:pt-5">
+      <div className="md:w-1/2 xs:w-full h-4/5 flex flex-col relative rounded-3xl md:-ml-5 xs:-mt-5 md:mt-0 z-20 drop-shadow-md bg-quaternary items-center md:pt-5">
         <div className="flex flex-col w-full justify-center pb-15 pl-10 pr-10 pt-5 items-center">
-          <Progress className="w-2/3 flex" value={(step / 3) * 100} />
+          <Progress className="w-2/3 flex mb-2" value={(step / 3) * 100} />
           <Form {...form}>
             <form
-              className="flex flex-col relative justify-between items-center w-full p-3 pt-6"
+              className="flex flex-col relative justify-between items-center w-full md:pt-6 xs:pt-0"
               onSubmit={form.handleSubmit(onSubmit)}
             >
               {step === 1 && (
-                <div className="grid grid-cols-5 md:gap-1 xs:gap-3 xs:auto-rows-min md:auto-rows-auto">
-                  <div className="col-span-5 row-span-1">
+                <div className="grid grid-cols-5 md:gap-1 xs:gap-1 xs:auto-rows-min md:auto-rows-auto">
+                  <div className="col-span-5 mt-2 row-span-1">
                     <FormField
                       control={form.control}
                       name="variant"
@@ -211,7 +211,7 @@ export const ReservationPage: React.FC = () => {
                           selectedDates?.[0]?.toISOString() || ""
                         );
                       }}
-                      className="xs:max-w-full rounded-lg shadow-md"
+                      className="xs:max-w-full text-xs rounded-lg shadow-md"
                     />
                   </div>
                 </div>
@@ -314,7 +314,7 @@ export const ReservationPage: React.FC = () => {
                   />
                 </div>
               )}
-              <div className="flex justify-around w-full fixed bottom-2">
+              <div className="flex justify-around w-full mt-6">
                 {step > 1 && (
                   <button
                     className="py-2 px-8 rounded-lg text-white bg-quinary cursor-pointer"

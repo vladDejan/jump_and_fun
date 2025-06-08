@@ -167,7 +167,7 @@ export const ServicesPage: React.FC = () => {
         {/*********************************************************************************************/}
 
         <div className="pt-10 ">
-          <span className="flex items-center justify-center text-md">
+          <span className="xs:flex xs:flex-col xs:items-center xs:justify-center text-md">
             Klikni na svaku sliku za detaljnije objašnjenje
             <MousePointerClick className="ml-2 text-secondary" />
           </span>
@@ -260,7 +260,7 @@ export const ServicesPage: React.FC = () => {
         {/*********************************************************************************************/}
 
         <div className="flex mb-16 flex-col justify-center items-center text-center w-fit">
-          <h3 className="md:text-2xl/2 xs:text-xl/2 inline-block mb-6 bg-primary pt-2 pr-2 pb-0 pl-2 ">
+          <h3 className="md:text-2xl/2 xs:text-lg/2 inline-block mb-6 bg-primary pt-2 pr-2 pb-0 pl-2 ">
             Savršeni trenuci za najlepše proslave
           </h3>
           <span className="md:text-xl xs:text-lg mb-1 text-quinary flex">
