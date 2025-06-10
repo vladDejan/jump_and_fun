@@ -9,6 +9,7 @@ import {
   Cake,
   Church,
   Gem,
+  LucideSiren,
   MousePointerClick,
   PartyPopper,
   VenusAndMars,
@@ -166,11 +167,14 @@ export const ServicesPage: React.FC = () => {
         )}
         {/*********************************************************************************************/}
 
-        <div className="pt-10 ">
+        <div className="flex flex-col justify-around md:pt-3">
           <span className="xs:flex xs:flex-col xs:items-center xs:justify-center text-md">
             Klikni na svaku sliku za detaljnije objašnjenje
-            <MousePointerClick className="ml-2 text-secondary" />
+            <MousePointerClick className=" text-secondary" />
           </span>
+          {category === "castle" && (
+              <span className="flex flex-row items-center justify-center mt-4"><LucideSiren className="mr-2 text-secondary" /> Novo u ponudi - Mali Dvorac <LucideSiren className="ml-2 text-secondary" /></span>
+          )}
         </div>
 
         {/* Responsive prikaz slika */}
