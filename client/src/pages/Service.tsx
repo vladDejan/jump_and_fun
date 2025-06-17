@@ -63,7 +63,6 @@ export const ServicesPage: React.FC = () => {
   const [items, setItems] = useState<ServiceItem[]>(bubbleService);
   //Trenutno izabrana kartica za uvecani prikaz.
   const [selectedItem, setSelectedItem] = useState<ServiceItem | null>(null);
-  const [showDetails, setShowDetails] = useState(false);
 
   const [showStickyNav, setShowStickyNav] = useState(false);
   const servicesRef = useRef<HTMLDivElement | null>(null);
