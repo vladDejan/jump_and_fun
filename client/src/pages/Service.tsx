@@ -6,6 +6,13 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../index.css";
 import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../components/ui/carousel";
+import {
   Cake,
   Church,
   Gem,
@@ -16,6 +23,7 @@ import {
 } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+import { Packages } from "../components/Packages";
 
 // Definišemo interfejs koji opisuje strukturu jednog objekta
 interface ServiceItem {
@@ -25,6 +33,29 @@ interface ServiceItem {
   description: string;
 }
 
+const packageData = [
+  {
+    title: "Paket 1",
+    description: "Veliki dvorac\n+\nMali dvorac",
+    price: "240€",
+  },
+  {
+    title: "Paket 2",
+    description: "Bubble House\n+\nVeliki dvorac",
+    price: "280€",
+  },
+  {
+    title: "Paket 3",
+    description: "Bubble House\n+\nMali dvorac",
+    price: "210€",
+  },
+  {
+    title: "Paket 4",
+    description: "Bubble House\n+\nVeliki i Mali dvorac",
+    price: "360€",
+  },
+];
+
 export const ServicesPage: React.FC = () => {
   //Trenutno izabrana kategorija ("bubble" ili "castle").
   const [category, setCategory] = useState<"bubble" | "castle">("bubble");
@@ -32,6 +63,7 @@ export const ServicesPage: React.FC = () => {
   const [items, setItems] = useState<ServiceItem[]>(bubbleService);
   //Trenutno izabrana kartica za uvecani prikaz.
   const [selectedItem, setSelectedItem] = useState<ServiceItem | null>(null);
+  const [showDetails, setShowDetails] = useState(false);
 
   const [showStickyNav, setShowStickyNav] = useState(false);
   const servicesRef = useRef<HTMLDivElement | null>(null);
@@ -173,7 +205,10 @@ export const ServicesPage: React.FC = () => {
             <MousePointerClick className=" text-secondary" />
           </span>
           {category === "castle" && (
-              <span className="flex flex-row items-center justify-center mt-4"><LucideSiren className="mr-2 text-secondary" /> Novo u ponudi - Mali Dvorac <LucideSiren className="ml-2 text-secondary" /></span>
+            <span className="flex flex-row items-center justify-center mt-4">
+              <LucideSiren className="mr-2 text-secondary" /> Novo u ponudi -
+              Mali Dvorac <LucideSiren className="ml-2 text-secondary" />
+            </span>
           )}
         </div>
 
@@ -262,26 +297,60 @@ export const ServicesPage: React.FC = () => {
           )}
         </AnimatePresence>
         {/*********************************************************************************************/}
-
-        <div className="flex mb-16 flex-col justify-center items-center text-center w-fit">
-          <h3 className="md:text-2xl/2 xs:text-lg/2 inline-block mb-6 bg-primary pt-2 pr-2 pb-0 pl-2 ">
+        <div className="flex flex-col justify-center items-center h-full w-full mt-10">
+          <h3 className="md:text-2xl/2 xs:text-lg/2 inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 ">
             Savršeni trenuci za najlepše proslave
           </h3>
-          <span className="md:text-xl xs:text-lg mb-1 text-quinary flex">
-            Dečiji rođendani <Cake className="text-secondary ml-5" />
-          </span>
-          <span className="md:text-xl xs:text-lg mb-1 text-quinary flex">
-            Krštenja <Church className="text-secondary ml-5" />
-          </span>
-          <span className="md:text-xl xs:text-lg mb-1 text-quinary flex">
-            Devojačke večeri <PartyPopper className="text-secondary ml-5" />
-          </span>
-          <span className="md:text-xl xs:text-lg mb-1 text-quinary flex">
-            Gender reveal <VenusAndMars className="text-secondary ml-5" />
-          </span>
-          <span className="md:text-xl xs:text-lg text-quinary flex">
-            Svadbe <Gem className="text-secondary ml-5" />
-          </span>
+          <div className="flex md:w-full xs:flex-col md:flex-row justify-evenly items-center">
+            <div className="flex xs:mb-22 md:mb-0 mt-0 flex-col justify-center items-center text-center w-fit">
+              <span className="md:text-xl xs:text-lg mb-1 text-quinary flex">
+                Dečiji rođendani <Cake className="text-secondary ml-5" />
+              </span>
+              <span className="md:text-xl xs:text-lg mb-1 text-quinary flex">
+                Krštenja <Church className="text-secondary ml-5" />
+              </span>
+              <span className="md:text-xl xs:text-lg mb-1 text-quinary flex">
+                Devojačke večeri <PartyPopper className="text-secondary ml-5" />
+              </span>
+              <span className="md:text-xl xs:text-lg mb-1 text-quinary flex">
+                Gender reveal <VenusAndMars className="text-secondary ml-5" />
+              </span>
+              <span className="md:text-xl xs:text-lg text-quinary flex">
+                Svadbe <Gem className="text-secondary ml-5" />
+              </span>
+            </div>
+            <div className="xs:w-full md:w-full md:flex md:justify-between md:items-center md:flex-col">
+              <Carousel
+                opts={{
+                  align: "start",
+                }}
+                orientation="vertical"
+                className="w-full max-w-xs h-full"
+              >
+                <CarouselContent className="-mt-1 h-[200px]">
+                  {packageData.map((item, index) => (
+                    <CarouselItem key={index} className="pt-1 xs:basis-1/2">
+                      <Packages
+                        title={item.title}
+                        description={item.description}
+                        price={item.price}
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious
+                  size="lg"
+                  variant="destructive"
+                  className="text-secondary"
+                />
+                <CarouselNext
+                  size="sm"
+                  variant="destructive"
+                  className="text-secondary"
+                />
+              </Carousel>
+            </div>
+          </div>
         </div>
       </div>
     </div>

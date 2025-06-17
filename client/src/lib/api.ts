@@ -3,7 +3,7 @@ type ReservationData = {
     email: string;
     phone: string;
     city: string;
-    variant: "bouncecastle" | "bubblehouse" | "both";
+    variant: "bouncecastle" | "bubblehouse" | "minibouncecastle" | "paket1" | "paket2" | "paket3" | "paket4";
     decoration?: boolean;
     date: string;
     specialRequests?: string;

@@ -19,10 +19,8 @@ export const Home = () => {
           </div>
           <div>
             <p className="text-center text-quinary!">
-              Deca mogu uživati u elegantnom igralištu koje je pažljivo
-              dizajnirano kako bi im pružilo bezbednu zabavu. Roditelji se mogu
-              opustiti znajući da je prostor pažljivo osmišljen s njihovom
-              bezbednošću u vidu.
+              Proslavite nezaboravne trenutke uz bele dvorce i Bubble House!
+Elegantna dekoracija, beskrajna zabava, savršeno za svaki poseban dan.
             </p>
           </div>
           <div className="flex justify-center mt-6 ">

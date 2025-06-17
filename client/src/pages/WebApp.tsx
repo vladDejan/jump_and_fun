@@ -13,7 +13,7 @@ export const WebApp = () => {
       <section id="services" className="min-h-screen xs:m-0 md:-mt-22">
         <ServicesPage />
       </section>
-      <section id="gallery" className="scroll-smooth snap-y snap-mandatory">
+      <section id="gallery" className="scroll-smooth snap-y snap-mandatory xs:mt-40">
         <Gallery />
       </section>
       <section id="reservation" className="snap-start min-h-screen">

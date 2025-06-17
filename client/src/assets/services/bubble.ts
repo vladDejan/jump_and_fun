@@ -22,6 +22,6 @@ export const bubbleService = () => [
     image: image3 as string,
     title: "Dimenzije i Program",
     description:
-      "<p><span class='margin-bottom: 10px'>Dimenzije:</span> 4.5 x 3 x 2.5m</p><p><span>Trajanje:</span>3h</p><p>200€</p>",
+      "<p><span class='margin-bottom: 10px'>Dimenzije:</span> 4.5 x 3 x 2.5m</p><p><span>Trajanje:</span>3h</p><p>150€</p>",
   },
 ];

@@ -34,7 +34,7 @@ const schema = z.object({
   email: z.string().email("Unesite validan email."),
   phone: z.string().min(6, "Broj telefona mora imati najmanje 6 cifara."),
   city: z.string().min(2, "Grad je obavezan."),
-  variant: z.enum(["bouncecastle", "bubblehouse", "both"], {
+  variant: z.enum(["bouncecastle", "bubblehouse", "minibouncecastle", "paket1", "paket2", "paket3", "paket4"], {
     required_error: "Morate odabrati varijantu",
   }),
   decorations: z.boolean().default(false),
@@ -133,7 +133,7 @@ export const ReservationPage: React.FC = () => {
             <span className="text-secondary z-20">F</span>un
           </h2>
         </div>
-        <div className="md:w-1/2 xs:w-full h-4/5 flex flex-col relative rounded-3xl md:-ml-5 xs:-mt-5 md:mt-0 z-20 drop-shadow-md bg-quaternary items-center md:pt-0">
+        <div className="md:w-1/2 xs:w-full xs:h-full md:h-4/5 flex flex-col relative rounded-3xl md:-ml-5 xs:-mt-5 md:mt-0 z-20 drop-shadow-md bg-quaternary items-center md:pt-0">
           <div className="flex flex-col w-full md:h-full xs:justify-center pb-5 pl-10 pr-10 pt-5 items-center">
             <Progress className="w-2/3 flex mb-2" value={(step / 3) * 100} />
             <Form {...form}>
@@ -171,7 +171,7 @@ export const ReservationPage: React.FC = () => {
                                       className="cursor-pointer"
                                       value="bouncecastle"
                                     >
-                                      Bounce Castle
+                                      Veliki Dvorac
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
@@ -181,9 +181,33 @@ export const ReservationPage: React.FC = () => {
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
-                                      value="both"
+                                      value="minibouncecastle"
                                     >
-                                      Bounce Castle & Bubble House
+                                      Mali Dvorac
+                                    </SelectItem>
+                                    <SelectItem
+                                      className="cursor-pointer"
+                                      value="paket1"
+                                    >
+                                      Paket 1
+                                    </SelectItem>
+                                    <SelectItem
+                                      className="cursor-pointer"
+                                      value="paket2"
+                                    >
+                                      Paket 2
+                                    </SelectItem>
+                                    <SelectItem
+                                      className="cursor-pointer"
+                                      value="paket3"
+                                    >
+                                      Paket 3
+                                    </SelectItem>
+                                    <SelectItem
+                                      className="cursor-pointer"
+                                      value="paket4"
+                                    >
+                                      Paket 4
                                     </SelectItem>
                                   </SelectGroup>
                                 </SelectContent>

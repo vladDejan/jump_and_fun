@@ -25,6 +25,6 @@ export const castleService = () => [
     title:
       "Dimenzije i Program",
     description:
-      "<p class='color: #1D2433'><span class='margin-bottom: 10px color: #1D2433'>Dimenzije:</span> 4 x 4 x 3.3m</p><p><span>Trajanje:</span> 3h</p><p><span>Uzrast:</span> 2-12 godina</p><p>250€</p>",
+      "<p class='color: #1D2433'><span class='margin-bottom: 10px color: #1D2433'>Dimenzije:</span> 4 x 4 x 3.3m</p><p><span>Trajanje:</span> 4h</p><p><span>Uzrast:</span> 2-12 godina</p><p>170€</p>",
   },
 ];
