@@ -54,7 +54,7 @@ export const ReservationPage: React.FC = () => {
   const [step, setStep] = useState(1);
   const [date, setDate] = React.useState<Date[] | undefined>();
   const [selectedVariant, setSelectedVariant] = useState<string>("bubblehouse");
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const form = useForm<ReservationFormData>({
     resolver: zodResolver(schema),
