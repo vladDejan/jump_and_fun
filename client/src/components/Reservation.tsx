@@ -177,49 +177,49 @@ export const ReservationPage: React.FC = () => {
                                       value="bouncecastle"
                                     >
                                       Veliki Dvorac
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="bubblehouse"
                                     >
                                       Bubble House
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="minibouncecastle"
                                     >
                                       Mali Dvorac
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket1"
                                     >
                                       Paket 1
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className=" ml-5 text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket2"
                                     >
                                       Paket 2
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket3"
                                     >
                                       Paket 3
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket4"
                                     >
                                       Paket 4
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
                                     </SelectItem>
                                   </SelectGroup>
                                 </SelectContent>
