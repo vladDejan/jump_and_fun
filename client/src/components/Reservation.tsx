@@ -29,6 +29,7 @@ import {
 import { submitReservation } from "../lib/api";
 import galVideo1 from "../assets/images/Gallery/video1.mp4";
 import { LucideInfo } from "lucide-react";
+import { format } from "date-fns";
 
 const schema = z.object({
   name: z.string().min(2, "Ime mora imati najmanje 2 slova."),
@@ -274,7 +275,7 @@ export const ReservationPage: React.FC = () => {
                           setDate(selectedDates);
                           form.setValue(
                             "date",
-                            selectedDates?.[0]?.toISOString() || ""
+                           selectedDates?.[0] ? format(selectedDates[0], "yyyy-MM-dd") : ""
                           );
                         }}
                         className="xs:max-w-full text-xs rounded-lg shadow-md"
