@@ -126,6 +126,9 @@ export const ReservationPage: React.FC = () => {
             loop
             playsInline
             webkit-playsinline="true"
+            preload="auto"
+            controls
+            poster="/fallback.jpg"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
           <div className="absolute inset-0 backdrop-brightness-125 z-10" />

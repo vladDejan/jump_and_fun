@@ -168,6 +168,9 @@ export const Gallery = () => {
           loop
           playsInline
           webkit-playsinline="true"
+          preload="auto"
+          controls
+          poster="/fallback.jpg"
           className="w-full h-auto rounded-lg shadow-md"
         />
       </div>
