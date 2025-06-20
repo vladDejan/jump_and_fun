@@ -28,6 +28,7 @@ import {
 } from "./ui/select";
 import { submitReservation } from "../lib/api";
 import galVideo1 from "../assets/images/Gallery/video1.mp4";
+import { LucideInfo } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "Ime mora imati najmanje 2 slova."),
@@ -53,6 +54,7 @@ export const ReservationPage: React.FC = () => {
   const [step, setStep] = useState(1);
   const [date, setDate] = React.useState<Date[] | undefined>();
   const [selectedVariant, setSelectedVariant] = useState<string>("bubblehouse");
+  const [modalVisible, setModalVisible] = useState(false);
 
   const form = useForm<ReservationFormData>({
     resolver: zodResolver(schema),
@@ -93,7 +95,7 @@ export const ReservationPage: React.FC = () => {
   const onSubmit = async (data: ReservationFormData) => {
     try {
       await submitReservation(data);
-      alert("Uspešno poslato, hvala! Kontaktiraćemo Vas u najkraćem vremenu.");
+      setModalVisible(true);
       form.reset();
       setStep(1);
     } catch (error) {
@@ -127,7 +129,7 @@ export const ReservationPage: React.FC = () => {
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
           <div className="absolute inset-0 backdrop-brightness-125 z-10" />
-          <img className="w-15 flex z-20" src={NavLogo} alt="logo_img" />
+          <img className="w-15 flex z-40" src={NavLogo} alt="logo_img" />
           <h2 className="text-white! z-40 flex text-center items-center justify-center">
             <span className="text-secondary z-20">J</span>ump&
             <span className="text-secondary z-20">F</span>un
@@ -172,42 +174,49 @@ export const ReservationPage: React.FC = () => {
                                       value="bouncecastle"
                                     >
                                       Veliki Dvorac
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="bubblehouse"
                                     >
                                       Bubble House
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="minibouncecastle"
                                     >
                                       Mali Dvorac
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket1"
                                     >
                                       Paket 1
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket2"
                                     >
                                       Paket 2
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket3"
                                     >
                                       Paket 3
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket4"
                                     >
                                       Paket 4
+                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="text-primary" /></button>
                                     </SelectItem>
                                   </SelectGroup>
                                 </SelectContent>
@@ -400,6 +409,15 @@ export const ReservationPage: React.FC = () => {
             </Form>
           </div>
         </div>
+        {modalVisible && (
+          <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+            <div className="bg-quaternary rounded-xl shadow-xl p-6 max-w-sm w-full text-center">
+              <h2 className="text-xl text-primary font-semibold mb-4">Uspešno poslato!</h2>
+              <p className="mb-6 text-quinary">Hvala! Kontaktiraćemo Vas u najkraćem vremenu.</p>
+              <button className="py-2 px-8 rounded-lg text-white bg-primary hover:bg-secondary transition-all delay-75 cursor-pointer" onClick={() => {setModalVisible(false); window.scrollTo({ top: 0});}}>Zatvori</button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

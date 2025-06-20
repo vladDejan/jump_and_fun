@@ -198,7 +198,7 @@ export const ServicesPage: React.FC = () => {
         )}
         {/*********************************************************************************************/}
 
-        <div className="flex flex-col justify-around md:pt-3">
+        <div className="flex flex-col justify-around md:pt-3 mb-5">
           <span className="xs:flex xs:flex-col xs:items-center xs:justify-center text-md">
             Klikni na svaku sliku za detaljnije objašnjenje
             <MousePointerClick className=" text-secondary" />
@@ -296,8 +296,8 @@ export const ServicesPage: React.FC = () => {
           )}
         </AnimatePresence>
         {/*********************************************************************************************/}
-        <div className="flex flex-col justify-center items-center h-full w-full mt-10">
-          <h3 className="md:text-2xl/2 xs:text-lg/2 inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 ">
+        <div className="flex flex-col justify-center items-center h-full w-full mt-5">
+          <h3 className="md:text-2xl/2 xs:text-lg/2 inline-block md:mb-10 xs:mb-5 bg-primary pt-2 pr-2 pb-0 pl-2 ">
             Savršeni trenuci za najlepše proslave
           </h3>
           <div className="flex md:w-full xs:flex-col md:flex-row justify-evenly items-center">
@@ -318,7 +318,7 @@ export const ServicesPage: React.FC = () => {
                 Svadbe <Gem className="text-secondary ml-5" />
               </span>
             </div>
-            <div className="xs:w-full md:w-full md:flex md:justify-between md:items-center md:flex-col">
+            <div className="xs:w-full md:w-fit md:flex md:justify-between md:items-center md:flex-col">
               <Carousel
                 opts={{
                   align: "start",
@@ -326,7 +326,7 @@ export const ServicesPage: React.FC = () => {
                 orientation="vertical"
                 className="w-full max-w-xs h-full"
               >
-                <CarouselContent className="-mt-1 h-[200px]">
+                <CarouselContent className="-mt-1 h-[200px] w-full">
                   {packageData.map((item, index) => (
                     <CarouselItem key={index} className="pt-1 xs:basis-1/2">
                       <Packages
