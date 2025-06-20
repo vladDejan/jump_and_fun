@@ -54,7 +54,7 @@ export const ReservationPage: React.FC = () => {
   const [step, setStep] = useState(1);
   const [date, setDate] = React.useState<Date[] | undefined>();
   const [selectedVariant, setSelectedVariant] = useState<string>("bubblehouse");
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
 
   const form = useForm<ReservationFormData>({
     resolver: zodResolver(schema),
@@ -410,10 +410,10 @@ export const ReservationPage: React.FC = () => {
           </div>
         </div>
         {modalVisible && (
-          <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+          <div className="fixed inset-0 p-4 bg-[rgba(0,0,0,0.8)] flex items-center justify-center z-50">
             <div className="bg-quaternary rounded-xl shadow-xl p-6 max-w-sm w-full text-center">
-              <h2 className="text-xl text-primary font-semibold mb-4">Uspešno poslato!</h2>
-              <p className="mb-6 text-quinary">Hvala! Kontaktiraćemo Vas u najkraćem vremenu.</p>
+              <h3 className="text-xl! text-quinary font-semibold mb-4">Uspešno poslato!</h3>
+              <p className="text-lg! mb-6 text-quinary">Hvala! Kontaktiraćemo Vas u najkraćem vremenu.</p>
               <button className="py-2 px-8 rounded-lg text-white bg-primary hover:bg-secondary transition-all delay-75 cursor-pointer" onClick={() => {setModalVisible(false); window.scrollTo({ top: 0});}}>Zatvori</button>
             </div>
           </div>
