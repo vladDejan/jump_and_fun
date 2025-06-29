@@ -72,8 +72,9 @@ export const Gallery = () => {
 
   //Funkcije za otvaranje/zatvaranje modala:
   const openModal = (index: number) => {
-    setCurrentIndex(index);
-    setIsOpen(true);
+    if (window.innerWidth >= 1120) return;
+  setCurrentIndex(index);
+  setIsOpen(true);
   };
   const closeModal = () => {
     setIsOpen(false);
@@ -151,7 +152,7 @@ export const Gallery = () => {
             <img
               src={item.src}
               alt={`gallery-${index}`}
-              className="w-full h-full object-cover rounded cursor-pointer"
+              className="w-full h-full object-cover rounded xs:cursor-pointer md:cursor-none"
               onClick={() => openModal(index)}
             />
           </div>
