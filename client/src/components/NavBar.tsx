@@ -45,9 +45,13 @@ export const NavBar = () => {
       </div>
       <div className="relative overflow-hidden whitespace-nowrap xs:w-3/4 xs:pt-2 md:pt-0 md:w-fit">
         <div className="inline-block animate-marquee">
-          📢 Novi događaji ovog vikenda!{" "}
-          <span className="text-secondary">Novo Naselje Fest</span>, dođite da
-          se družimo! 📢
+          📢 Novo u ponudi!{"   "}
+          <span className="text-secondary">🌼Paket 1:</span> Veliki dvorac + Mali beli dvorac{"   "}
+          <span className="text-secondary">🌼Paket 2:</span> Bubble House + Veliki dvorac{"   "}
+          <span className="text-secondary">🌼Paket 3:</span> Bubble House + Mali beli dvorac{"   "}
+          <span className="text-secondary">🌼Paket 4:</span> Veliki dvorac + Mali beli dvorac + Bubble House{"   "}
+          <span className="text-secondary">+ Dodaci:</span> 🏹🎯Luk i strela sa metom 500rsd {"  "}  ⭕🏀Koš sa loptom 500rsd {"  "} 🥅⚽Golovi i lopta 500rsd{" "}
+          📢
         </div>
       </div>
       {/* HAMBURGER MENU */}

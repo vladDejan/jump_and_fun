@@ -147,9 +147,10 @@ input {
 
 .animate-marquee {
   display: inline-block;
-  animation: marquee 15s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
+/* Grid Galerija */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

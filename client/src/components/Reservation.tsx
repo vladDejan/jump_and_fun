@@ -108,7 +108,7 @@ export const ReservationPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full relative h-screen mt-6 xs:mb-10 md:mb-0 flex flex-col justify-center items-center">
+    <div className="w-full relative h-screen mt-6 xs:mb-0 md:mb-0 flex flex-col justify-center items-center">
       <div className="md:w-fit xs:w-full xs:mb-4 md:mb-0 xs:px-2 flex flex-col justify-center items-center text-center">
         <h3 className="md:text-2xl/2! xs:text-xl/2! inline-block mb-6 bg-primary pt-2 pr-2 pb-0 pl-2 md:w-1/3">
           Rezervacija
