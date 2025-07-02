@@ -43,7 +43,7 @@ export const NavBar = () => {
       <div className="md:flex xs:hidden items-center ml-12 mr-12">
         <img className="w-24" src={NavLogo} alt="logo_img" />
       </div>
-      <div className="relative overflow-hidden whitespace-nowrap xs:w-3/4 xs:pt-2 md:pt-0 md:w-fit">
+      <div className="relative overflow-hidden whitespace-nowrap xs:w-3/4 xs:pt-2 md:pt-0 md:w-1/2">
         <div className="inline-block animate-marquee">
           📢 Novo u ponudi!{"   "}
           <span className="text-secondary">🌼Paket 1:</span> Veliki dvorac + Mali beli dvorac{"   "}
