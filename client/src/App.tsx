@@ -1,10 +1,15 @@
 
 import { Home } from "./pages/Home"
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { ServicesPage } from "./pages/Service";
 import { ReservationPage } from "./components/Reservation";
-import { WebApp } from "./pages/WebApp";
 import { Gallery } from "./pages/Gallery";
+import { HomePage } from "./pages/HomePages";
+import { Packages } from "./components/Packages";
+import { NavBar } from "./components/NavBar";
+import { BubbleHouse } from "./pages/BubbleHouse";
+import { VelikiDvorac } from "./pages/VelikiDvorac";
+import { MaliDvorac } from "./pages/MaliDvorac";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 
 
@@ -15,12 +20,17 @@ function App() {
   return (
     <div>
       <Router>
+        <ScrollToTop />
+        <NavBar />
         <Routes>
-          <Route path="/" element={<WebApp />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/reservation" element={<ReservationPage />} />
+          <Route path="/paketi" element={<Packages />} />
+          <Route path="/rezervacije" element={<ReservationPage />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/programs/bubble-house" element={<BubbleHouse />} />
+          <Route path="/programs/veliki-dvorac" element={<VelikiDvorac />} />
+          <Route path="/programs/mali-dvorac" element={<MaliDvorac />} />
         </Routes>
       </Router>
     </div>

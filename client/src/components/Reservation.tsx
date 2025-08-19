@@ -7,6 +7,7 @@ import {
   FormLabel,
   FormMessage,
 } from "./ui/form";
+import { FooterPage } from "./Footer";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
@@ -108,17 +109,18 @@ export const ReservationPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full relative h-screen mt-6 xs:mb-0 md:mb-0 flex flex-col justify-center items-center">
-      <div className="md:w-fit xs:w-full xs:mb-4 md:mb-0 xs:px-2 flex flex-col justify-center items-center text-center">
-        <h3 className="md:text-2xl/2! xs:text-xl/2! inline-block mb-6 bg-primary pt-2 pr-2 pb-0 pl-2 md:w-1/3">
+    <div>
+    <div className="w-full relative h-screen xs:mb-0 xs:mt-15 md:mb-0 flex flex-col justify-center items-center">
+      <div className="md:w-fit xs:w-full xs:mb-4 md:mb-0 xs:px-2 md:mt-15 flex flex-col justify-center items-center text-center">
+        <h2 className="md:!text-2xl/2 xs:text-lg/2 !font-medium w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary">
           Rezervacija
-        </h3>
+        </h2>
         <p className="text-quinary! font-light! xs:text-base!">
           Ispunite kratku formu kako bi zabavu doveli do Vas i Vaših najmilijih.
         </p>
       </div>
       <div className="w-full md:p-0 xs:p-4 relative h-full xs:justify-center xs:items-center md:items-center flex md:flex-row xs:flex-col">
-        <div className="md:w-1/4 xs:w-full xs:h-3/4 md:h-4/5 flex relative md:rounded-bl-3xl md:rounded-tl-3xl md:rounded-tr-none xs:rounded-tl-3xl xs:rounded-tr-3xl md:justify-center md:items-start xs:justify-center overflow-hidden">
+        <div className="md:w-1/4 xs:w-full xs:h-full md:h-4/5 flex relative md:rounded-bl-3xl md:rounded-tl-3xl md:rounded-tr-none xs:rounded-tl-3xl xs:rounded-tr-3xl md:justify-center md:items-start xs:justify-center overflow-hidden">
           <video
             ref={videoRef}
             src={galVideo1}
@@ -139,7 +141,7 @@ export const ReservationPage: React.FC = () => {
             <span className="text-secondary z-20">F</span>un
           </h2>
         </div>
-        <div className="md:w-1/2 xs:w-full xs:h-full md:h-4/5 flex flex-col relative rounded-3xl md:-ml-5 xs:-mt-5 md:mt-0 z-20 drop-shadow-md bg-quaternary items-center md:pt-0">
+        <div className="md:w-1/2 xs:w-full xs:h-full md:h-4/5 flex flex-col relative rounded-3xl md:-ml-5 xs:-mt-4 md:mt-0 z-20 drop-shadow-md bg-quaternary items-center md:pt-0">
           <div className="flex flex-col w-full md:h-full xs:justify-center pb-5 pl-10 pr-10 pt-5 items-center">
             <Progress className="w-2/3 flex mb-2" value={(step / 3) * 100} />
             <Form {...form}>
@@ -256,8 +258,7 @@ export const ReservationPage: React.FC = () => {
                                     Dodatne dekoracije
                                   </label>
                                   <span className="text-xs text-quinary! opacity-70">
-                                    Ova usluga se posebno naplaćuje 50 eura po
-                                    programu
+                                    Ova usluga se posebno naplaćuje.
                                   </span>
                                 </div>
                               </div>
@@ -423,6 +424,9 @@ export const ReservationPage: React.FC = () => {
           </div>
         )}
       </div>
+      
+    </div>
+    <FooterPage />
     </div>
   );
 };

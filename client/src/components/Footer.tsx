@@ -1,9 +1,17 @@
 import { Instagram, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import NavLogo from "../assets/images/logo.svg";
 
-export const FooterPage = () => {
+type FooterPageProps = {
+  className?: string;
+};
+
+export const FooterPage = ({className}: FooterPageProps) => {
   return (
-    <div className=" h-1/2 w-full ">
+    <div className={`relative h-1/2 w-full mt-10 ${className ?? ""}`}>
+      <div className="md:flex xs:flex xs:items-center xs:justify-center xs:mb-2">
+            <img className="w-18" src={NavLogo} alt="logo_img" />
+      </div>
       <div className="flex justify-center mb-2 gap-4">
         <Link className="flex" to={"https://www.instagram.com/jump_and_fun_serbia/"} target="_blank">
           <span className="flex text-sm">

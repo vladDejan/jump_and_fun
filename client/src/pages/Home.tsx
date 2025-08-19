@@ -1,44 +1,85 @@
-import { NavBar } from "@/components/NavBar";
 import "../index.css";
 import NavLogo from "../assets/images/logo.svg";
 import { Instagram, Mail, PhoneCall } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const Home = () => {
+  const floatVariant = {
+    animate1: {
+      y: [0, -5, 0],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+    animate2: {
+      y: [0, 5, 0],
+      transition: {
+        duration: 2.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+    animate3: {
+      y: [0, -3, 0],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
   return (
-    <div className="md:homebg mobHomebg justify-center flex flex-col">
-      <NavBar />
-      <div className="grid mt-10 grid-cols-3 grid-rows-1 xs:gap-0 md:gap-2 mb-2 self-center md:w-1/3 xs:w-full">
-            <Link
-              className="flex justify-end"
-              to={"https://www.instagram.com/jump_and_fun_serbia/"}
-              target="_blank"
-            >
-              <span className="flex text-xs text-quinary items-center">
-                <Instagram className="w-10 text-primary" />
-              </span>
-            </Link>
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=jumpandfunserbia@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex justify-center"
-            >
-              <span className="flex text-xs text-quinary items-center">
-                <Mail className="w-10 text-primary" />
-              </span>
-            </a>
-            <a className="flex justify-start" href="tel:+381641234567">
-              <span className="flex text-xs font-medium text-quinary items-center">
-                <PhoneCall className="w-10 mr-1 text-primary" />+381 69 2353249
-              </span>
-            </a>
-          </div>
-      <div className="flex-1 flex justify-center flex-col items-center mb-16">
-        
+    <div className="md:homebg relative px-2 mobHomebg justify-center flex flex-col">
+      <motion.div className="xs:grid md:flex md:flex-col md:justify-baseline md:absolute md:left-1 md:mt-0 xs:mt-10 xs:grid-cols-3 xs:grid-rows-1 xs:gap-0 md:gap-8 mb-2 xs:self-center xs:w-full md:w-fit">
+        <motion.div variants={floatVariant} animate="animate1">
+          <Link
+            className="flex xs:justify-end md:justify-start cursor-pointer"
+            to="https://www.instagram.com/jump_and_fun_serbia/"
+            target="_blank"
+          >
+            <span className="flex text-xs text-quinary items-center">
+              <Instagram className="w-12 text-primary hover:text-secondary" />
+            </span>
+          </Link>
+        </motion.div>
+
+        <motion.div variants={floatVariant} animate="animate2">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=jumpandfunserbia@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex xs:justify-center md:justify-start cursor-pointer"
+          >
+            <span className="flex text-xs text-quinary items-center">
+              <Mail className="w-12 text-primary hover:text-secondary" />
+            </span>
+          </a>
+        </motion.div>
+
+        <motion.div variants={floatVariant} animate="animate3">
+          <a
+            className="flex xs:justify-start md:justify-start cursor-pointer"
+            href="tel:+381628476247"
+          >
+            <span className="flex text-xs font-medium text-quinary items-center">
+              <PhoneCall className="w-12 mr-1 text-primary hover:text-secondary" />
+            </span>
+          </a>
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+        className="flex-1 flex relative justify-center flex-col items-center mb-16"
+      >
         <div className="flex flex-col xs:w-full xs:p-2 md:w-1/2">
-          <div className="md:hidden xs:flex xs:items-center xs:justify-center xs:mb-6">
-            <img className="w-24" src={NavLogo} alt="logo_img" />
+          <div className="md:flex xs:flex xs:items-center xs:justify-center xs:mb-6">
+            <img className="w-34" src={NavLogo} alt="logo_img" />
           </div>
           <div>
             <h1 className="xs:text-5xl! uppercase text-center mb-6">
@@ -46,10 +87,11 @@ export const Home = () => {
             </h1>
           </div>
           <div>
-            <p className="text-center text-quinary!">
-              Proslavite nezaboravne trenutke uz bele dvorce i Bubble House!
-              Elegantna dekoracija, beskrajna zabava, savršeno za svaki poseban
-              dan.
+            <p className="text-center xs:!text-base xs:!font-medium text-quinary!">
+              Dvorci na naduvavanje za dečije proslave, rođendane, krštenja,
+              venčanja i svečane događaje – Bubble House, Elegantni Beli Dvorci
+              za iznajmljivanje u Novom Sadu i širom Srbije. Sigurna i zabavna
+              igra za decu, idealna za porodične i poslovne proslave.
             </p>
           </div>
           <div className="flex justify-center mt-6 ">
@@ -65,7 +107,7 @@ export const Home = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

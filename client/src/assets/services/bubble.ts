@@ -1,27 +1,34 @@
-import image1 from "../images/bubble/bubble0.png"
-import image2 from "../images/bubble/bubble1.png"
-import image3 from "../images/bubble/bubble2.png"
+import image1 from "../images/bubble/bubble0.webp"
+import image2 from "../images/bubble/bubble1.webp"
+import image3 from "../images/bubble/bubble2.webp"
 
 export const bubbleService = () => [
   {
     id: 1,
     image: image1 as string,
-    title: "Zašto BubbleHouse ?",
     description:
-      "Svaki detalj, od dekoracija do aktivnosti, pažljivo je biran kako bi se stvorila atmosfera iz bajke.",
+      "🎈 Bubble House na naduvavanje za nezaboravne dečije proslave. Bubble House na naduvavanje je pravi hit na dečijim rođendanima i proslavama širom Srbije. Savršena za roditelje koji žele moderan, vizuelno upečatljiv ambijent uz more balona i sigurnu zabavu za najmlađe. Za razliku od klasičnih dvoraca, Bubble House pruža drugačiji vizuelni doživljaj – bela kupola sa velikim otvorenim ulazom i more balona unutar kupole, spremna za dekoraciju po želji.",
   },
   {
     id: 2,
     image: image2 as string,
-    title: "Dizajn i Materijal",
     description:
-      "Napravljen od visokokvalitetnog PVC materijala, prozirnog kako bi stvorio efekat mehura. Potpuno bezbedan za decu, netoksičan, otporan na ogrebotine sa UV zaštitom ako se koristi na otvorenom. Ima ventilacione otvore koji omogućavaju neprestan protok vazduha sa laganom konstrukcijom sa šavovima pojačanim termičkom obradom.",
+      `
+  <ul class="space-y-1 text-[14px]">
+    <li><span class="font-semibold">• Preporučeni uzrast:</span> 2–6 godina</li>
+    <li><span class="font-semibold">• Kapacitet:</span> Do 5 dece istovremeno</li>
+    <li><span class="font-semibold">• Dimenzije:</span> 3 m (širina) × 4.5 m (dužina) × 2,5 m (visina)</li>
+    <li><span class="font-semibold">• Dodaci:</span> Gratis baloni unutar bubble house</li>
+    <li><span class="font-semibold">• Uključeno u cenu:</span> Montaža i jedna osoba zadužena za bezbedno i pravilno korišćenje</li>
+    <li><span class="font-semibold">• Trajanje najma:</span> 3 sata</li>
+    <li><span class="font-semibold">• Cena:</span> 150€</li>
+  </ul>
+      `,
   },
   {
     id: 3,
     image: image3 as string,
-    title: "Dimenzije i Program",
     description:
-      "<p><span class='margin-bottom: 10px'>Dimenzije:</span> 4.5 x 3 x 2.5m</p><p><span>Trajanje:</span>3h</p><p>150€</p>",
+    "✨ Bubble House je sve popularniji izbor za dečije proslave sa balonima, tematske rođendane i elegantne dekoracije. 📍 Dostupan za iznajmljivanje u Novom Sadu i dostavu širom Srbije. 📞 Kontaktirajte nas i obezbedite svoj termin – baloni i osmesi su zagarantovani!"  ,
   },
 ];

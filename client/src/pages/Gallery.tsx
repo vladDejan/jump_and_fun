@@ -1,19 +1,20 @@
-import gal4 from "./../assets/images/Gallery/gallery4.jpg";
-import gal5 from "./../assets/images/Gallery/gallery5.jpg";
-import gal6 from "./../assets/images/Gallery/gallery6.jpg";
-import gal8 from "./../assets/images/Gallery/gallery8.jpg";
-import gal9 from "./../assets/images/Gallery/gallery9.jpg";
-import gal10 from "./../assets/images/Gallery/gallery10.jpg";
-import gal11 from "./../assets/images/Gallery/gallery11.jpg";
-import gal12 from "./../assets/images/Gallery/gallery12.jpg";
-import gal13 from "./../assets/images/Gallery/gallery13.jpg";
-import gal14 from "./../assets/images/Gallery/gallery14.jpg";
-import gal15 from "./../assets/images/Gallery/gallery15.jpg";
-import gal16 from "./../assets/images/Gallery/gallery16.jpg";
+import gal4 from "./../assets/images/Gallery/gallery4.webp";
+import gal5 from "./../assets/images/Gallery/gallery5.webp";
+import gal6 from "./../assets/images/Gallery/gallery6.webp";
+import gal8 from "./../assets/images/Gallery/gallery8.webp";
+import gal9 from "./../assets/images/Gallery/gallery9.webp";
+import gal10 from "./../assets/images/Gallery/gallery10.webp";
+import gal11 from "./../assets/images/Gallery/gallery11.webp";
+import gal12 from "./../assets/images/Gallery/gallery12.webp";
+import gal13 from "./../assets/images/Gallery/gallery13.webp";
+import gal14 from "./../assets/images/Gallery/gallery14.webp";
+import gal15 from "./../assets/images/Gallery/gallery15.webp";
+import gal16 from "./../assets/images/Gallery/gallery16.webp";
 import galVideo from "./../assets/images/Gallery/video0.mp4";
 import "../index.css";
 import { useEffect, useRef, useState } from "react";
 import { useSwipeable } from "react-swipeable";
+import { FooterPage } from "@/components/Footer";
 
 //Definicija tipa za jedan el. u Gridu:
 type GridItem = {
@@ -70,7 +71,7 @@ export const Gallery = () => {
   //Index trenutne slike
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
-  //Funkcije za otvaranje/zatvaranje modala:
+ /*  //Funkcije za otvaranje/zatvaranje modala:
   const openModal = (index: number) => {
     if (window.innerWidth >= 1120) return;
   setCurrentIndex(index);
@@ -104,7 +105,7 @@ export const Gallery = () => {
   onSwipedRight: prevImage,
   touchEventOptions: { passive: false },
   trackTouch: true,
-});
+}); */
 
 
 // Detektuje kada video uđe/izađe iz vidljivog dela ekrana (viewporta),
@@ -132,7 +133,10 @@ export const Gallery = () => {
   }, []);
   
   return (
-    <div className="p-4 space-y-2">
+    <div className="p-4 space-y-2 mt-15 text-center">
+      <h2 className="md:!text-2xl/2 xs:text-lg/2 !font-medium w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary">
+        Galerija
+      </h2>
       {/* Dummy div sa svim klasama koje su potrebne Tailwindu */}
       <div
         className="hidden
@@ -152,8 +156,7 @@ export const Gallery = () => {
             <img
               src={item.src}
               alt={`gallery-${index}`}
-              className="w-full h-full object-cover rounded xs:cursor-pointer md:cursor-none"
-              onClick={() => openModal(index)}
+              className="w-full h-full object-cover rounded"
             />
           </div>
         ))}
@@ -175,7 +178,7 @@ export const Gallery = () => {
           className="w-full h-auto rounded-lg shadow-md"
         />
       </div>
-      {isOpen && currentIndex !== null && (
+    {/*   {isOpen && currentIndex !== null && (
   <div
     id="modal-overlay"
     onClick={handleOverlayClick}
@@ -193,7 +196,8 @@ export const Gallery = () => {
       />
     </div>
   </div>
-)}
+)} */}
+<FooterPage />
     </div>
   );
 };
