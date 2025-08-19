@@ -111,7 +111,7 @@ const y = useTransform(scrollYProgress, [0, 1], [0, -100]); // pomeraj sliku na 
 
         {/****** DESKTOP ******/}
         <div className="md:h-screen relative hidden md:flex items-center justify-center md:flex-row xs:flex-col gap-4 max-w-screen-md mx-auto">
-          {packages.map((pkg, i) => (
+          {packages.map((pkg) => (
             <div key={pkg.id} className="flex flex-col relative">
               <div className="flex flex-row items-center justify-center">
               <h2 key={pkg.id} className="md:!text-2xl/2 xs:text-lg/2 !font-semibold w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary">{getCleanTitle(pkg.title)}</h2>

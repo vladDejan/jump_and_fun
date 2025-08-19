@@ -9,7 +9,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../index.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import { useNavigate } from "react-router-dom";
 
 // Definišemo interfejs koji opisuje strukturu jednog objekta
 interface ServiceItem {
@@ -18,7 +17,7 @@ interface ServiceItem {
   description: string;
 }
 
-const packageData = [
+/* const packageData = [
   {
     title: "Paket 1",
     description: "Veliki dvorac\n+\nMali dvorac",
@@ -39,7 +38,7 @@ const packageData = [
     description: "Bubble House\n+\nVeliki i Mali dvorac",
     price: "360€",
   },
-];
+]; */
 
 export const ServicesPage: React.FC = () => {
   //Trenutno izabrana kategorija ("bubble" ili "castle").
@@ -53,7 +52,6 @@ export const ServicesPage: React.FC = () => {
   const [showStickyNav, setShowStickyNav] = useState(false);
   const servicesRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
 
   //Menjanje kategorije i postavljanje odgovarajućeg niza servisa.
   const changeCategory = (newCategory: "bubble" | "castle" | "miniCastle") => {

@@ -13,7 +13,6 @@ import gal16 from "./../assets/images/Gallery/gallery16.webp";
 import galVideo from "./../assets/images/Gallery/video0.mp4";
 import "../index.css";
 import { useEffect, useRef, useState } from "react";
-import { useSwipeable } from "react-swipeable";
 import { FooterPage } from "@/components/Footer";
 
 //Definicija tipa za jedan el. u Gridu:
@@ -67,9 +66,6 @@ const secondGroup: GridItem[] = secondGroupRaw.map((item) => ({
 const allImages = [...firstGroup, ...secondGroup];
 
 export const Gallery = () => {
-  const [isOpen, setIsOpen] = useState(false); //Otvaranje modala
-  //Index trenutne slike
-  const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
  /*  //Funkcije za otvaranje/zatvaranje modala:
   const openModal = (index: number) => {
