@@ -31,6 +31,7 @@ import { submitReservation } from "../lib/api";
 import galVideo1 from "../assets/images/Gallery/video1.mp4";
 import { LucideInfo } from "lucide-react";
 import { format } from "date-fns";
+import { useNavigate } from 'react-router-dom';
 
 const schema = z.object({
   name: z.string().min(2, "Ime mora imati najmanje 2 slova."),
@@ -57,6 +58,7 @@ export const ReservationPage: React.FC = () => {
   const [date, setDate] = React.useState<Date[] | undefined>();
   const [selectedVariant, setSelectedVariant] = useState<string>("bubblehouse");
   const [modalVisible, setModalVisible] = useState(false);
+  const navigate = useNavigate();
 
   const form = useForm<ReservationFormData>({
     resolver: zodResolver(schema),
@@ -158,7 +160,9 @@ export const ReservationPage: React.FC = () => {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="label-text">
-                              Odaberi program :
+                              Odaberi program : <button className="cursor-pointer" onClick={() => {
+            navigate("/paketi");
+          }}><span className="!text-sm !text-secondary !font-light flex items-center">(Niste sigurni? Klikni za više Info)<LucideInfo className="text-secondary" /></span></button>
                             </FormLabel>
                             <FormControl>
                               <Select
@@ -180,49 +184,49 @@ export const ReservationPage: React.FC = () => {
                                       value="bouncecastle"
                                     >
                                       Veliki Dvorac
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
+                                      
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="bubblehouse"
                                     >
                                       Bubble House
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
+                                      
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="minibouncecastle"
                                     >
                                       Mali Dvorac
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
+                                      
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket1"
                                     >
                                       Paket 1
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className=" ml-5 text-primary" /></button>
+                                      
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket2"
                                     >
                                       Paket 2
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
+                                      
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket3"
                                     >
                                       Paket 3
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
+                                      
                                     </SelectItem>
                                     <SelectItem
                                       className="cursor-pointer"
                                       value="paket4"
                                     >
                                       Paket 4
-                                      <button onClick={() => document.getElementById("services")?.scrollIntoView({behavior: "smooth"})}><LucideInfo className="ml-5 text-primary" /></button>
+                                      
                                     </SelectItem>
                                   </SelectGroup>
                                 </SelectContent>
