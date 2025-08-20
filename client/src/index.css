@@ -27,6 +27,10 @@ p{
   color:  #1D2433;
 }
 
+pre {
+  font-family: "Bodoni Moda", serif;
+}
+
 h1 {
   font-size: 64px;
   font-weight: 600;

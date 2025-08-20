@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../index.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+import { ChevronLeft, ChevronRight, MousePointerClick } from "lucide-react";
 
 // Definišemo interfejs koji opisuje strukturu jednog objekta
 interface ServiceItem {
@@ -16,29 +17,6 @@ interface ServiceItem {
   image: string;
   description: string;
 }
-
-/* const packageData = [
-  {
-    title: "Paket 1",
-    description: "Veliki dvorac\n+\nMali dvorac",
-    price: "240€",
-  },
-  {
-    title: "Paket 2",
-    description: "Bubble House\n+\nVeliki dvorac",
-    price: "280€",
-  },
-  {
-    title: "Paket 3",
-    description: "Bubble House\n+\nMali dvorac",
-    price: "210€",
-  },
-  {
-    title: "Paket 4",
-    description: "Bubble House\n+\nVeliki i Mali dvorac",
-    price: "360€",
-  },
-]; */
 
 export const ServicesPage: React.FC = () => {
   //Trenutno izabrana kategorija ("bubble" ili "castle").
@@ -251,6 +229,9 @@ export const ServicesPage: React.FC = () => {
 
           {/* MOBILNI SWIPER */}
           <div className="md:hidden block px-2 h-full">
+            <div className="flex justify-center items-center mb-8">
+              <ChevronLeft className="mr-5" /><span className="text-primary flex items-center text-sm">Skroluj i klikni na sliku za više informacija <MousePointerClick className="text-primary text-sm" /></span><ChevronRight className="ml-5 text-sm" />
+            </div>
             <Swiper
               spaceBetween={10}
               slidesPerView={1}

@@ -18,6 +18,7 @@ import { packages } from "../assets/services/package";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../index.css"
 
 const cards = [
   {
@@ -25,7 +26,7 @@ const cards = [
     title: "🎈 Bubble House",
     image: Bubblehouse,
     description:
-      "Bubble House na naduvavanje za nezaboravne dečije proslave. Bubble House je pravi hit na rođendanima...",
+      "Bubble House na naduvavanje za nezaboravne dečije proslave. Bubble House na naduvavanje je pravi hit na dečijim rođendanima i proslavama širom Srbije.",
     details: `• Preporučeni uzrast: 2–6 godina
 • Kapacitet: Do 5 dece istovremeno
 • Dimenzije: 3 m × 4.5 m × 2.5 m
@@ -39,7 +40,7 @@ const cards = [
     title: "🤍 Elegantni beli dvorac",
     image: Castle,
     description:
-      "Elegantni Beli Dvorac savršen je izbor za venčanja, krštenja, rođendane i druge svečanosti...",
+      "Naš elegantni beli dvorac na naduvavanje savršen je izbor za venčanja, krštenja, luksuzne rođendane i druge svečane događaje. Kombinuje prefinjen izgled sa sigurnom i zabavnom igrom za decu, čineći ga idealnim za sve koji žele da svoju dečiju proslavu ili porodični događaj podignu na viši nivo.",
     details: `• Kapacitet: Do 10 dece
 • Uzrast: 2–10 godina
 • Dimenzije: 4 m × 4 m × 3.3 m
@@ -52,7 +53,7 @@ const cards = [
     title: "🤍 Mali Beli Dvorac",
     image: Minicastle,
     description:
-      "Mali beli dvorac je odličan za rođendane, krštenja i manje proslave sa bazenom sa lopticama...",
+      "Mali beli dvorac je savršen izbor za krštenja, rođendane i manje svečane proslave. U njegovom sastavu nalazi se i bazen sa lopticama, koji pruža dodatnu zabavu i sigurno će okupirati mališane tokom celog događaja.",
     details: `• Uzrast: 1–6 godina
 • Kapacitet: Do 5 dece
 • Dimenzije: 3 m × 3 m × 2.5 m
@@ -296,7 +297,7 @@ const y = useTransform(scrollYProgress, [0, 1], [0, -100]); // pomeraj sliku na 
             </CardContent>
           </Card>
         </div>
-        {/****** MOBILNI ******/}
+        {/****** MOBILNI POJEDINACNO ******/}
         <div className="flex md:hidden gap-4 px-4 w-full overflow-x-auto snap-x">
           {cards.map((card, i) => {
             const isActive = activeId === card.id;
@@ -318,7 +319,7 @@ const y = useTransform(scrollYProgress, [0, 1], [0, -100]); // pomeraj sliku na 
                   animate={isActive ? "visible" : "hidden"}
                   variants={paketAnim}
                   custom={i}
-                  className={`absolute inset-0 z-10 bg-white/60 backdrop-blur-md p-4 text-quinary flex flex-col justify-start items-center space-y-2 overflow-y-auto transition-opacity duration-300 ${
+                  className={`absolute inset-0 z-10 bg-white/60 backdrop-blur-md p-4 text-quinary flex flex-col justify-start space-y-2 overflow-y-auto transition-opacity duration-200 ${
                     isActive ? "opacity-100" : "opacity-0 pointer-events-none"
                   }`}
                 >
@@ -339,7 +340,7 @@ const y = useTransform(scrollYProgress, [0, 1], [0, -100]); // pomeraj sliku na 
                   <motion.pre
                     variants={paketAnim}
                     custom={i + 0.3}
-                    className="whitespace-pre-wrap !text-sm !font-medium text-left overflow-auto"
+                    className="whitespace-pre-wrap !text-sm !font-semibold !text-left"
                   >
                     {card.details}
                   </motion.pre>
@@ -443,7 +444,7 @@ const y = useTransform(scrollYProgress, [0, 1], [0, -100]); // pomeraj sliku na 
                 najdraže.
               </h2>
               <button
-                onClick={() => navigate("/reservation")}
+                onClick={() => navigate("/rezervacije")}
                 className="w-1/2 mt-10 py-2 px-5 rounded-lg text-white bg-primary hover:bg-secondary transition-all delay-75 cursor-pointer"
               >
                 Rezerviši
