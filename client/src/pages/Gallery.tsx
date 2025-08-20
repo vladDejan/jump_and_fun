@@ -12,7 +12,7 @@ import gal15 from "./../assets/images/Gallery/gallery15.webp";
 import gal16 from "./../assets/images/Gallery/gallery16.webp";
 import galVideo from "./../assets/images/Gallery/video0.mp4";
 import "../index.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { FooterPage } from "@/components/Footer";
 
 //Definicija tipa za jedan el. u Gridu:
