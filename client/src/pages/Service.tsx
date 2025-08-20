@@ -3,7 +3,7 @@ import { bubbleService } from "../assets/services/bubble";
 import { miniCastleService } from "../assets/services/miniCastle";
 import CastleIcon from "../assets/images/castleLink.svg?react";
 import BubbleIcon from "../assets/images/bubbleLink.svg?react";
-import MiniCastleIcon from "../assets/images/miniCastleLink.svg?react";
+import MiniCastleIcon from "../assets/images/MiniCastleLink.svg?react";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../index.css";
