@@ -11,7 +11,7 @@ import {
 import { ChevronDown } from "lucide-react";
 import CastleIcon from "../assets/images/castleLink.svg?react";
 import BubbleIcon from "../assets/images/bubbleLink.svg?react";
-import MiniCastleIcon from "../assets/images/miniCastleLink.svg?react";
+import MiniCastleIcon from "../assets/images/MiniCastleLink.svg?react";
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
