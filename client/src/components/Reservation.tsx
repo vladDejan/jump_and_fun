@@ -32,6 +32,7 @@ import galVideo1 from "../assets/images/Gallery/video1.mp4";
 import { LucideInfo } from "lucide-react";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import "../index.css"
 
 const schema = z.object({
   name: z.string().min(2, "Ime mora imati najmanje 2 slova."),
@@ -123,7 +124,7 @@ export const ReservationPage: React.FC = () => {
 
   return (
     <div>
-      <div className="w-full relative h-full xs:mb-0 mt-15 md:mb-0 flex flex-col justify-center items-center">
+      <div className="w-full relative md:h-screen xs:h-auto xs:mb-0 xs:mt-15 md:mt-20 md:mb-0 flex flex-col justify-center items-center">
         <div className="md:w-fit xs:w-full xs:px-2 flex flex-col justify-center items-center text-center">
           <h2 className="md:!text-2xl/2 xs:!text-2xl/2 !font-medium w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary">
             Rezervacija
@@ -145,7 +146,7 @@ export const ReservationPage: React.FC = () => {
               webkit-playsinline="true"
               preload="auto"
               poster="/fallback.jpg"
-              className="absolute inset-0 w-full !h-full object-cover z-0"
+              className="absolute inset-0 w-full h-full object-cover z-0"
             />
             <div className="absolute inset-0 backdrop-brightness-125 z-10" />
             <img className="w-15 flex z-40" src={NavLogo} alt="logo_img" />

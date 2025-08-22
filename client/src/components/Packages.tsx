@@ -161,13 +161,13 @@ const y = useTransform(scrollYProgress, [0, 1], [0, -100]); // pomeraj sliku na 
             </div>
             </div>
                 <Card
-                  className="border-primary relative w-full h-[400px] cursor-pointer overflow-hidden"
+                  className="border-primary flex justify-center items-center !p-0 relative w-full h-[450px] cursor-pointer overflow-hidden"
                   onClick={() => togglePackage(pkg.id)}
                 >
                   <img
                     src={pkg.image}
                     alt={pkg.title}
-                    className="w-full h-full object-cover"
+                    className="w-full md:h-full xs:h-[100vh] object-cover scale-70"
                   />
 
                   {/* Overlay sa tekstom, kao hover na desktop */}

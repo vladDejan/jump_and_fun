@@ -146,7 +146,7 @@ export const ServicesPage: React.FC = () => {
               <header className="flex gap-10 w-full bg-quaternary rounded-t-2xl justify-center py-4">
                 <div className="flex flex-col">
                   <button
-                    className={`cursor-pointer items-center justify-center flex flex-col leading-6 ${
+                    className={`cursor-pointer !text-sm items-center justify-center flex flex-col leading-6 ${
                       category === "bubble" ? "text-primary" : ""
                     }`}
                     onClick={() => changeCategory("bubble")}
@@ -161,7 +161,7 @@ export const ServicesPage: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <button
-                    className={`cursor-pointer items-center justify-center flex flex-col leading-6 ${
+                    className={`cursor-pointer !text-sm items-center justify-center flex flex-col leading-6 ${
                       category === "castle" ? "text-primary" : ""
                     }`}
                     onClick={() => changeCategory("castle")}
@@ -176,7 +176,7 @@ export const ServicesPage: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <button
-                    className={`cursor-pointer items-center justify-center flex flex-col leading-6 ${
+                    className={`cursor-pointer !text-sm items-center justify-center flex flex-col leading-6 ${
                       category === "miniCastle" ? "text-primary" : ""
                     }`}
                     onClick={() => changeCategory("miniCastle")}
@@ -230,7 +230,7 @@ export const ServicesPage: React.FC = () => {
           {/* MOBILNI SWIPER */}
           <div className="md:hidden block px-2 h-full">
             <div className="flex justify-center items-center mb-8">
-              <ChevronLeft className="mr-5" /><span className="text-primary flex items-center text-sm">Skroluj i klikni na sliku za više informacija <MousePointerClick className="text-primary text-sm" /></span><ChevronRight className="ml-5 text-sm" />
+              <ChevronLeft className="mr-5" /><span className="text-primary flex items-center text-xs">Skroluj i klikni na sliku za više informacija <MousePointerClick className="text-primary text-sm" /></span><ChevronRight className="ml-5 text-sm" />
             </div>
             <Swiper
               spaceBetween={10}
