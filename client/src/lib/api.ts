@@ -12,6 +12,7 @@ type ReservationData = {
 const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000"
 
 export const submitReservation = async (data: ReservationData) => {
+    console.log("Sending request to:", BASE_URL);
     const response = await fetch(`${BASE_URL}/api/reservations/submit`, {
         method: "POST",
         headers: {
