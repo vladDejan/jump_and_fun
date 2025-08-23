@@ -1,38 +1,26 @@
 type ReservationData = {
-  name: string;
-  email: string;
-  phone: string;
-  city: string;
-  variant: "bouncecastle" | "bubblehouse" | "minibouncecastle" | "paket1" | "paket2" | "paket3" | "paket4";
-  decoration?: boolean;
-  date: string;
-  specialRequests?: string;
-};
+    name: string;
+    email: string;
+    phone: string;
+    city: string;
+    variant: "bouncecastle" | "bubblehouse" | "minibouncecastle" | "paket1" | "paket2" | "paket3" | "paket4";
+    decoration?: boolean;
+    date: string;
+    specialRequests?: string;
+}
 
-const API_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000"
 
 export const submitReservation = async (data: ReservationData) => {
-  const fullUrl = `${API_URL}/api/reservations/submit`;
-
-  console.log("Sending request to:", fullUrl);
-
-  try {
-    const response = await fetch(fullUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Server error: ${response.status}`);
+    const response = await fetch(`${BASE_URL}/api/reservations/submit`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    if (!response.ok){
+        throw new Error("Greska pri slanju rezervacije")
     }
-
-    const result = await response.json();
-    console.log("Server response:", result);
-    return result;
-
-  } catch (err) {
-    console.error("Error submitting reservation:", err);
-    throw err;
-  }
-};
+    return response.json()
+}
