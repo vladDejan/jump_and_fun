@@ -1,4 +1,4 @@
-type ReservationData = {
+/* type ReservationData = {
     name: string;
     email: string;
     phone: string;
@@ -7,7 +7,7 @@ type ReservationData = {
     decoration?: boolean;
     date: string;
     specialRequests?: string;
-}
+} */
 
 const API_URL = import.meta.env.VITE_API_URL;
 
