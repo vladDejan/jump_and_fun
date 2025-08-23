@@ -143,16 +143,16 @@ export const ServicesPage: React.FC = () => {
               exit={{ y: 100, opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              <header className="flex gap-10 w-full bg-quaternary rounded-t-2xl justify-center py-4">
+              <header className="flex gap-12 w-full bg-quaternary rounded-t-2xl justify-center py-4">
                 <div className="flex flex-col">
                   <button
-                    className={`cursor-pointer !text-sm items-center justify-center flex flex-col leading-6 ${
+                    className={`cursor-pointer !text-xs items-center justify-center flex flex-col leading-6 ${
                       category === "bubble" ? "text-primary" : ""
                     }`}
                     onClick={() => changeCategory("bubble")}
                   >
                     <BubbleIcon
-                      className={`svg-active w-8 h-8 ${
+                      className={`svg-active w-6 h-6 ${
                         category === "bubble" ? "svgActive" : ""
                       }`}
                     />
@@ -161,13 +161,13 @@ export const ServicesPage: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <button
-                    className={`cursor-pointer !text-sm items-center justify-center flex flex-col leading-6 ${
+                    className={`cursor-pointer !text-xs items-center justify-center flex flex-col leading-6 ${
                       category === "castle" ? "text-primary" : ""
                     }`}
                     onClick={() => changeCategory("castle")}
                   >
                     <CastleIcon
-                      className={`svg-active w-8 h-8 ${
+                      className={`svg-active w-6 h-6 ${
                         category === "castle" ? "svgActive" : ""
                       }`}
                     />
@@ -176,13 +176,13 @@ export const ServicesPage: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <button
-                    className={`cursor-pointer !text-sm items-center justify-center flex flex-col leading-6 ${
+                    className={`cursor-pointer !text-xs items-center justify-center flex flex-col leading-6 ${
                       category === "miniCastle" ? "text-primary" : ""
                     }`}
                     onClick={() => changeCategory("miniCastle")}
                   >
                     <MiniCastleIcon
-                      className={`svg-active w-8 h-8 ${
+                      className={`svg-active w-6 h-6 ${
                         category === "miniCastle" ? "svgActive" : ""
                       }`}
                     />

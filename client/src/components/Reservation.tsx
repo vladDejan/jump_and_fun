@@ -35,9 +35,22 @@ import { useNavigate } from "react-router-dom";
 import "../index.css"
 
 const schema = z.object({
-  name: z.string().min(2, "Ime mora imati najmanje 2 slova."),
+  name: z
+    .string()
+    .min(2, "Ime mora imati najmanje 2 slova.")
+    .refine(
+      (val) => /^[A-Za-zČĆŽŠĐčćžšđ]+ [A-Za-zČĆŽŠĐčćžšđ]+( [A-Za-zČĆŽŠĐčćžšđ]+)*$/.test(val.trim()),
+      {
+        message: "Vrednosti nisu dobro unešene.",
+      }
+    ),
   email: z.string().email("Unesite validan email."),
-  phone: z.string().min(6, "Broj telefona mora imati najmanje 6 cifara."),
+  phone: z
+  .string()
+  .min(6, "Broj telefona mora imati najmanje 6 cifara.")
+  .refine((val) => /^[0-9]+$/.test(val), {
+    message: "Broj telefona može sadržati samo cifre.",
+  }),
   city: z.string().min(2, "Grad je obavezan."),
   variant: z.enum(
     [
@@ -447,7 +460,7 @@ export const ReservationPage: React.FC = () => {
                   className="py-2 px-8 rounded-lg text-white bg-primary hover:bg-secondary transition-all delay-75 cursor-pointer"
                   onClick={() => {
                     setModalVisible(false);
-                    window.scrollTo({ top: 0 });
+                    setTimeout(() => navigate("/"), 300);
                   }}
                 >
                   Zatvori

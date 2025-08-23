@@ -87,7 +87,7 @@ export const Home = () => {
             </h1>
           </div>
           <div>
-            <p className="text-center xs:!text-base xs:!font-medium text-quinary!">
+            <p className="text-center md:!text-xl xs:!text-lg xs:!font-medium text-quinary!">
               Dvorci na naduvavanje za dečije proslave, rođendane, krštenja,
               venčanja i svečane događaje – Bubble House, Elegantni Beli Dvorci
               za iznajmljivanje u Novom Sadu i širom Srbije. Sigurna i zabavna
