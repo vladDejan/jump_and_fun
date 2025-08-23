@@ -1,20 +1,20 @@
-/* type ReservationData = {
-    name: string;
-    email: string;
-    phone: string;
-    city: string;
-    variant: "bouncecastle" | "bubblehouse" | "minibouncecastle" | "paket1" | "paket2" | "paket3" | "paket4";
-    decoration?: boolean;
-    date: string;
-    specialRequests?: string;
-} */
+type ReservationData = {
+  name: string;
+  email: string;
+  phone: string;
+  city: string;
+  variant: "bouncecastle" | "bubblehouse" | "minibouncecastle" | "paket1" | "paket2" | "paket3" | "paket4";
+  decoration?: boolean;
+  date: string;
+  specialRequests?: string;
+};
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-export const submitReservation = async (data: any) => {
+export const submitReservation = async (data: ReservationData) => {
   const fullUrl = `${API_URL}/api/reservations/submit`;
 
-  console.log("Sending request to:", fullUrl); // <<< ovde vidiš tačan URL
+  console.log("Sending request to:", fullUrl);
 
   try {
     const response = await fetch(fullUrl, {
