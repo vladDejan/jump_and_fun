@@ -11,7 +11,9 @@ import "./models/Reservation";
 
 // Kreiranje Express aplikacije
 const app = express();
-const port: number = 5000;
+// Render ili lokalni port
+const port: number = Number(process.env.PORT) || 5000;
+
 
 // Omogućava CORS kako bi aplikacija bila dostupna iz različitih domena
 app.use(cors({

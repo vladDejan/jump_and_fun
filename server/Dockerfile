@@ -1,23 +1,26 @@
-# 1. Baza image sa Node.js
+# Base image
 FROM node:18
 
-# 2. Radni direktorijum
+# 1. Set working directory
 WORKDIR /app
 
-# 3. Kopiraj package.json i package-lock.json prvo
+# 2. Copy package.json
 COPY package*.json ./
 
-# 4. Instaliraj dependencije
+# 3. Install dependencies
 RUN npm install
 
-# 5. Kopiraj ostatak fajlova
+# 4. Install TypeScript globally
+RUN npm install -g typescript
+
+# 5. Copy all source code
 COPY . .
 
-# 6. Transpajliraj TypeScript
-RUN npx tsc
+# 6. Transpile TypeScript
+RUN tsc
 
-# 7. Otvori port za Fly.io
+# 7. Expose port (ako koristiš)
 EXPOSE 5000
 
-# 8. Pokreni backend
+# 8. Start command
 CMD ["node", "dist/index.js"]
