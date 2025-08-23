@@ -3,7 +3,7 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'server-icy-snowflake-9033'
+app = "system32-misty-river-5136"
 primary_region = 'cdg'
 
 [build]

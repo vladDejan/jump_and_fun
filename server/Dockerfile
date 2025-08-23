@@ -1,20 +1,23 @@
 # 1. Baza image sa Node.js
 FROM node:18
 
-# 2. Radni direktorijum u kontejneru
+# 2. Radni direktorijum
 WORKDIR /app
 
-# 3. Kopiraj sve fajlove
-COPY . .
+# 3. Kopiraj package.json i package-lock.json prvo
+COPY package*.json ./
 
 # 4. Instaliraj dependencije
 RUN npm install
 
-# 5. Transpajliraj TypeScript u JavaScript
+# 5. Kopiraj ostatak fajlova
+COPY . .
+
+# 6. Transpajliraj TypeScript
 RUN npx tsc
 
-# 6. Otvori port za Fly.io
+# 7. Otvori port za Fly.io
 EXPOSE 5000
 
-# 7. Pokreni backend (JavaScript build iz dist/)
+# 8. Pokreni backend
 CMD ["node", "dist/index.js"]

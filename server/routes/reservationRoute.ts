@@ -73,6 +73,13 @@ router.post(
         subject: "Nova Rezervacija",
         html: htmlContent,
       };
+      transporter.verify((error, success) => {
+  if (error) {
+    console.error("Email transporter error:", error);
+  } else {
+    console.log("Email transporter ready:", success);
+  }
+});
 
       // Slanje email-a
       await transporter.sendMail(mailOptions);
