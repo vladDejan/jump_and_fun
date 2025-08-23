@@ -32,25 +32,28 @@ import galVideo1 from "../assets/images/Gallery/video1.mp4";
 import { LucideInfo } from "lucide-react";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
-import "../index.css"
+import "../index.css";
 
 const schema = z.object({
   name: z
     .string()
     .min(2, "Ime mora imati najmanje 2 slova.")
     .refine(
-      (val) => /^[A-Za-zČĆŽŠĐčćžšđ]+ [A-Za-zČĆŽŠĐčćžšđ]+( [A-Za-zČĆŽŠĐčćžšđ]+)*$/.test(val.trim()),
+      (val) =>
+        /^[A-Za-zČĆŽŠĐčćžšđ]+ [A-Za-zČĆŽŠĐčćžšđ]+( [A-Za-zČĆŽŠĐčćžšđ]+)*$/.test(
+          val.trim()
+        ),
       {
         message: "Vrednosti nisu dobro unešene.",
       }
     ),
   email: z.string().email("Unesite validan email."),
   phone: z
-  .string()
-  .min(6, "Broj telefona mora imati najmanje 6 cifara.")
-  .refine((val) => /^[0-9]+$/.test(val), {
-    message: "Broj telefona može sadržati samo cifre.",
-  }),
+    .string()
+    .min(6, "Broj telefona mora imati najmanje 6 cifara.")
+    .refine((val) => /^[0-9]+$/.test(val), {
+      message: "Broj telefona može sadržati samo cifre.",
+    }),
   city: z.string().min(2, "Grad je obavezan."),
   variant: z.enum(
     [
@@ -132,6 +135,24 @@ export const ReservationPage: React.FC = () => {
         "Došlo je do greške prilikom slanja rezervacije. Pokušajte ponovo ili nas kontaktirajte putem email-a ili broja telefona."
       );
       console.error(error);
+    }
+  };
+
+  const validateStep = async (currentStep: number) => {
+    try {
+      // Proveri samo polja koja su relevantna za taj step
+      if (currentStep === 1) {
+        await form.trigger(["variant", "decorations", "date"]);
+      } else if (currentStep === 2) {
+        await form.trigger(["name", "email", "phone", "city"]);
+      } else if (currentStep === 3) {
+        await form.trigger(["specialRequests"]);
+      }
+
+      // trigger vraća true ako su validna polja
+      return form.formState.isValid;
+    } catch (err) {
+      return false;
     }
   };
 
@@ -429,7 +450,15 @@ export const ReservationPage: React.FC = () => {
                       <button
                         className="py-2 px-8 rounded-lg text-white bg-quinary cursor-pointer"
                         type="button"
-                        onClick={() => setStep(step + 1)}
+                        onClick={async () => {
+                          const isStepValid = await validateStep(step);
+                          if (isStepValid) {
+                            setStep(step + 1);
+                          } else {
+                            // opcionalno: scroll na prvo nevalidno polje
+                            console.log("Popuni obavezna polja");
+                          }
+                        }}
                       >
                         Dalje
                       </button>
