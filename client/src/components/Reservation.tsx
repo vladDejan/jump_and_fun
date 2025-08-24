@@ -451,14 +451,19 @@ export const ReservationPage: React.FC = () => {
                         className="py-2 px-8 rounded-lg text-white bg-quinary cursor-pointer"
                         type="button"
                         onClick={async () => {
-                          const isStepValid = await validateStep(step);
-                          if (isStepValid) {
-                            setStep(step + 1);
-                          } else {
-                            // opcionalno: scroll na prvo nevalidno polje
-                            console.log("Popuni obavezna polja");
-                          }
-                        }}
+      if (step === 2) {
+        // Samo ovde proveravamo obavezna polja
+        const isStepValid = await validateStep(step);
+        if (isStepValid) {
+          setStep(step + 1);
+        } else {
+          console.log("Popuni obavezna polja");
+        }
+      } else {
+        // Ako je step 1, slobodno ide dalje
+        setStep(step + 1);
+      }
+    }}
                       >
                         Dalje
                       </button>
