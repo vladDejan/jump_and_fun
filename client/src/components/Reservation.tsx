@@ -86,6 +86,8 @@ export const ReservationPage: React.FC = () => {
   const [date, setDate] = React.useState<Date[] | undefined>();
   const [selectedVariant, setSelectedVariant] = useState<string>("bubblehouse");
   const [modalVisible, setModalVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
   const form = useForm<ReservationFormData>({
@@ -126,8 +128,15 @@ export const ReservationPage: React.FC = () => {
 
   const onSubmit = async (data: ReservationFormData) => {
     try {
-      await submitReservation(data);
+      // prvo otvori modal i uključi loading
       setModalVisible(true);
+      setLoading(true);
+      setSuccess(false);
+
+      await submitReservation(data);
+
+      // ako uspe, isključi loading i prikaži success
+      setSuccess(true);
       form.reset();
       setStep(1);
     } catch (error) {
@@ -135,6 +144,9 @@ export const ReservationPage: React.FC = () => {
         "Došlo je do greške prilikom slanja rezervacije. Pokušajte ponovo ili nas kontaktirajte putem email-a ili broja telefona."
       );
       console.error(error);
+    } finally {
+      // kad se sve završi, gasi loader
+      setLoading(false);
     }
   };
 
@@ -451,19 +463,19 @@ export const ReservationPage: React.FC = () => {
                         className="py-2 px-8 rounded-lg text-white bg-quinary cursor-pointer"
                         type="button"
                         onClick={async () => {
-      if (step === 2) {
-        // Samo ovde proveravamo obavezna polja
-        const isStepValid = await validateStep(step);
-        if (isStepValid) {
-          setStep(step + 1);
-        } else {
-          console.log("Popuni obavezna polja");
-        }
-      } else {
-        // Ako je step 1, slobodno ide dalje
-        setStep(step + 1);
-      }
-    }}
+                          if (step === 2) {
+                            // Samo ovde proveravamo obavezna polja
+                            const isStepValid = await validateStep(step);
+                            if (isStepValid) {
+                              setStep(step + 1);
+                            } else {
+                              console.log("Popuni obavezna polja");
+                            }
+                          } else {
+                            // Ako je step 1, slobodno ide dalje
+                            setStep(step + 1);
+                          }
+                        }}
                       >
                         Dalje
                       </button>
@@ -484,21 +496,38 @@ export const ReservationPage: React.FC = () => {
           {modalVisible && (
             <div className="fixed inset-0 p-4 bg-[rgba(0,0,0,0.8)] flex items-center justify-center z-50">
               <div className="bg-quaternary rounded-xl shadow-xl p-6 max-w-sm w-full text-center">
-                <h3 className="text-xl! text-quinary font-semibold mb-4">
-                  Uspešno poslato!
-                </h3>
-                <p className="text-lg! mb-6 text-quinary">
-                  Hvala! Kontaktiraćemo Vas u najkraćem vremenu.
-                </p>
-                <button
-                  className="py-2 px-8 rounded-lg text-white bg-primary hover:bg-secondary transition-all delay-75 cursor-pointer"
-                  onClick={() => {
-                    setModalVisible(false);
-                    setTimeout(() => navigate("/"), 300);
-                  }}
-                >
-                  Zatvori
-                </button>
+                {loading && !success && (
+                  <div className="flex flex-col items-center justify-center">
+                    <img
+                      src={NavLogo}
+                      alt="loading logo"
+                      className="w-16 h-16 animate-spin mb-4"
+                    />
+                    <p className="text-lg text-quinary">
+                      Slanje rezervacije...
+                    </p>
+                  </div>
+                )}
+                {!loading && success && (
+                  <>
+                    <h3 className="text-xl! text-quinary font-semibold mb-4">
+                      Uspešno poslato!
+                    </h3>
+                    <p className="text-lg! mb-6 text-quinary">
+                      Hvala! Kontaktiraćemo Vas u najkraćem vremenu.
+                    </p>
+                    <button
+                      className="py-2 px-8 rounded-lg text-white bg-primary hover:bg-secondary transition-all delay-75 cursor-pointer"
+                      onClick={() => {
+                        setModalVisible(false);
+                        setSuccess(false);
+                        setTimeout(() => navigate("/"), 300);
+                      }}
+                    >
+                      Zatvori
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           )}
