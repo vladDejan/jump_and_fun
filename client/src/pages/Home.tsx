@@ -34,7 +34,7 @@ export const Home = () => {
   return (
     <div className="md:homebg relative px-2 mobHomebg justify-center flex flex-col">
       <motion.div className="xs:grid md:flex md:flex-col md:justify-baseline md:absolute md:left-1 md:mt-0 xs:mt-10 xs:grid-cols-3 xs:grid-rows-1 xs:gap-0 md:gap-8 mb-2 xs:self-center xs:w-full md:w-fit">
-        <motion.div variants={floatVariant} animate="animate1">
+        <motion.div className="z-50" variants={floatVariant} animate="animate1">
           <Link
             className="flex xs:justify-end md:justify-start cursor-pointer"
             to="https://www.instagram.com/jump_and_fun_serbia/"
@@ -46,7 +46,7 @@ export const Home = () => {
           </Link>
         </motion.div>
 
-        <motion.div variants={floatVariant} animate="animate2">
+        <motion.div className="z-50" variants={floatVariant} animate="animate2">
           <a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=jumpandfunserbia@gmail.com"
             target="_blank"
@@ -59,13 +59,16 @@ export const Home = () => {
           </a>
         </motion.div>
 
-        <motion.div variants={floatVariant} animate="animate3">
+        <motion.div className="group z-50" variants={floatVariant} animate="animate3">
           <a
             className="flex xs:justify-start md:justify-start cursor-pointer"
             href="tel:+381628476247"
           >
-            <span className="flex text-xs font-medium text-quinary items-center">
-              <PhoneCall className="w-12 mr-1 text-primary hover:text-secondary" />
+            <span className="flex flex-col text-xs font-medium text-quinary items-center">
+              <PhoneCall className="w-12 mr-1 flex text-primary group-hover:text-secondary" />
+              <span className="xs:hidden md:hidden group-hover:flex bg-secondary text-white">
+              +381628476247
+            </span>
             </span>
           </a>
         </motion.div>
@@ -88,10 +91,7 @@ export const Home = () => {
           </div>
           <div>
             <p className="text-center md:!text-xl xs:!text-lg xs:!font-medium text-quinary!">
-              Dvorci na naduvavanje za dečije proslave, rođendane, krštenja,
-              venčanja i svečane događaje – Bubble House, Elegantni Beli Dvorci
-              za iznajmljivanje u Novom Sadu i širom Srbije. Sigurna i zabavna
-              igra za decu, idealna za porodične i poslovne proslave.
+              Iznajmljivanje belih, tematskih dvoraca i Bubble House za proslave u Novom Sadu i Srbiji.
             </p>
           </div>
           <div className="flex justify-center mt-6 ">

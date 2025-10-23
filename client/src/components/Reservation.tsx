@@ -31,8 +31,9 @@ import { submitReservation } from "../lib/api";
 import galVideo1 from "../assets/images/Gallery/video1.mp4";
 import { LucideInfo } from "lucide-react";
 import { format } from "date-fns";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../index.css";
+import { VariantType } from "@/assets/services/variantType";
 
 const schema = z.object({
   name: z
@@ -66,7 +67,7 @@ const schema = z.object({
       "paket4",
     ],
     {
-      required_error: "Morate odabrati varijantu",
+      required_error: "Morate odabrati paket",
     }
   ),
   decorations: z.boolean().default(false),
@@ -84,11 +85,15 @@ type ReservationFormData = z.infer<typeof schema>;
 export const ReservationPage: React.FC = () => {
   const [step, setStep] = useState(1);
   const [date, setDate] = React.useState<Date[] | undefined>();
-  const [selectedVariant, setSelectedVariant] = useState<string>("bubblehouse");
+  
+const [selectedVariant, setSelectedVariant] = useState<VariantType>("bubblehouse");
   const [modalVisible, setModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+const state = location.state as { selectedVariant?: VariantType };
+const preSelectedVariant: VariantType = state?.selectedVariant || "bubblehouse";
 
   const form = useForm<ReservationFormData>({
     resolver: zodResolver(schema),
@@ -97,7 +102,7 @@ export const ReservationPage: React.FC = () => {
       email: "",
       phone: "",
       city: "",
-      variant: "bubblehouse",
+      variant: preSelectedVariant,
       decorations: false,
       date: "",
       specialRequests: "",
@@ -168,6 +173,14 @@ export const ReservationPage: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+  form.reset({
+    ...form.getValues(),
+    variant: preSelectedVariant,
+  });
+  setSelectedVariant(preSelectedVariant);
+}, [preSelectedVariant]);
+
   return (
     <div>
       <div className="w-full relative md:h-screen xs:h-auto xs:mb-0 xs:mt-15 md:mt-20 md:mb-0 flex flex-col justify-center items-center">
@@ -235,7 +248,7 @@ export const ReservationPage: React.FC = () => {
                                 <Select
                                   onValueChange={(value) => {
                                     field.onChange(value);
-                                    setSelectedVariant(value);
+                                    setSelectedVariant(value as ReservationFormData["variant"]);
                                   }}
                                   value={field.value}
                                   defaultValue={selectedVariant}

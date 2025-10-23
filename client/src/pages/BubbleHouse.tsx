@@ -13,7 +13,7 @@ import {
 import { FooterPage } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { AnimatedCards } from "../components/AnimatedCard";
-import { AnimatedCardMobile } from "@/components/AnimatedCardMobile";
+import { AnimatedCardMobile } from "@/components/AnimatedCardMobil";
 
 type Card = {
   id: number;

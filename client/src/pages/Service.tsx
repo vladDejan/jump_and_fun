@@ -30,6 +30,8 @@ export const ServicesPage: React.FC = () => {
   const [showStickyNav, setShowStickyNav] = useState(false);
   const servicesRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLDivElement>(null);
+  const swiperRef = useRef<any>(null);
+
 
   //Menjanje kategorije i postavljanje odgovarajućeg niza servisa.
   const changeCategory = (newCategory: "bubble" | "castle" | "miniCastle") => {
@@ -230,12 +232,13 @@ export const ServicesPage: React.FC = () => {
           {/* MOBILNI SWIPER */}
           <div className="md:hidden block px-2 h-full">
             <div className="flex justify-center items-center mb-8">
-              <ChevronLeft className="mr-5" /><span className="text-primary flex items-center text-xs">Skroluj i klikni na sliku za više informacija <MousePointerClick className="text-primary text-sm" /></span><ChevronRight className="ml-5 text-sm" />
+              <ChevronLeft onClick={() => swiperRef.current?.slidePrev()} className="mr-5 cursor-pointer" /><span className="text-primary flex items-center text-xs">Listaj slike za više informacija <MousePointerClick className="text-primary text-sm" /></span><ChevronRight onClick={() => swiperRef.current?.slideNext()} className="ml-5 cursor-pointer text-sm" />
             </div>
             <Swiper
               spaceBetween={10}
               slidesPerView={1}
               pagination={{ clickable: true }}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
             >
               {items.map((item) => (
                 <SwiperSlide key={item.id}>
@@ -248,44 +251,20 @@ export const ServicesPage: React.FC = () => {
                       alt={item.image}
                       className="object-cover w-full h-60 rounded-xl shadow-md"
                     />
+                    <motion.p
+      className="text-quinary text-sm! mt-3 text-center"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.5 }}
+      transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+      dangerouslySetInnerHTML={{ __html: item.description }}
+    />
                   </motion.div>
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
         </div>
-          {/* Modal za mob. tel. */}
-        <AnimatePresence>
-          {selectedItem && (
-            <div className="md:hidden">
-              <motion.div
-                className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
-                onClick={() => setSelectedItem(null)}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              />
-              <motion.div
-                layoutId={selectedItem.id.toString()}
-                className="fixed z-50 top-1/2 left-1/2 w-[90vw] max-w-xl -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl p-6 shadow-xl"
-                onClick={(e) => e.stopPropagation()}
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-              >
-                <motion.img
-                  src={selectedItem.image}
-                  alt={selectedItem.image}
-                  className="w-full h-64 object-cover rounded-xl mb-6"
-                />
-                <p
-                  className="text-quinary !text-sm"
-                  dangerouslySetInnerHTML={{ __html: selectedItem.description }}
-                />
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
       </div>
       
     </div>

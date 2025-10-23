@@ -37,6 +37,7 @@ export const FooterPage = ({className}: FooterPageProps) => {
           </a>
         </p>
         <p className="text-center py-2 text-quinary! text-xs!">© 2025 Jump&Fun. Sva prava zadržana.</p>
+        <Link to="/privacy-policy" className="underline hover:text-primary"><p className="text-center py-2 text-quinary! text-xs!">Privacy Policy</p></Link>
       </div>
     </div>
   );
