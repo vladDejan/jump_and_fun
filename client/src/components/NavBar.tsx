@@ -173,7 +173,7 @@ export const NavBar = () => {
 
       {/* Mobilni dropdown meni */}
       <div
-        className={`xs:fixed top-0 right-0 bg-white shadow-md rounded-md p-4 z-6 flex flex-col justify-center items-center gap-4 md:hidden w-full transition-all duration-500 ease-in-out
+        className={`xs:fixed top-0 right-0 bg-white shadow-md rounded-md p-4 z-60 flex flex-col justify-center items-center gap-4 md:hidden w-full transition-all duration-500 ease-in-out
         ${
           isMenuOpen
             ? "translate-y-0 opacity-100"
