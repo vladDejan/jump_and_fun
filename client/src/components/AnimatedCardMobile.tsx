@@ -40,7 +40,7 @@ export const AnimatedCardMobile = ({ card, delay }: AnimatedCardProps) => {
           className="w-full object-cover transition-opacity duration-300"
         />
 
-        <div className="p-4 md:hidden flex flex-col">
+        <div className="p-4 xs:flex flex-col">
           {card.title && (
             <h3 className="!text-lg !font-semibold mb-2">{card.title}</h3>
           )}

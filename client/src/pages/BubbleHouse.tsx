@@ -12,7 +12,7 @@ import {
 } from "../components/ui/accordion";
 import { FooterPage } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { AnimatedCards } from "../components/AnimatedCard";
+import { AnimatedCards } from "@/components/AnimatedCard";
 import { AnimatedCardMobile } from "@/components/AnimatedCardMobil";
 
 type Card = {
@@ -64,19 +64,20 @@ export const BubbleHouse = () => {
     <div>
       {/******* DESKTOP *******/}
       <div className="p-6 mt-15 justify-center items-center flex-col hidden md:flex">
-        <h2 className="md:!text-2xl/2 xs:text-lg/2 !font-medium w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary">
-          Bubble House
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 px-28">
-          {cards.map((card, index) => (
-            <AnimatedCards key={card.id} card={card} delay={index * 0.2} />
-          ))}
-        </div>
-      </div>
+  <h2 className="md:!text-2xl/2 w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary !font-medium">
+    Bubble House
+  </h2>
+
+  <div className="grid grid-cols-2 gap-6 px-10 lg:px-28">
+    {cards.map((card, index) => (
+      <AnimatedCards key={card.id} card={card} delay={index * 0.2} />
+    ))}
+  </div>
+</div>
 
       {/******* MOBILE *******/}
-      <div className="p-6 xs:p-2 flex flex-col items-center mt-10 md:hidden">
-        <h2 className="md:!text-4xl/2 xs:!text-2xl/2 w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary !font-medium">
+      <div className="p-6 xs:p-2 md:hidden flex flex-col items-center mt-10">
+        <h2 className="md:!text-2xl/2 xs:text-lg/2 !font-medium w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary">
           Bubble House
         </h2>
         <div className="grid grid-cols-1 gap-6">
