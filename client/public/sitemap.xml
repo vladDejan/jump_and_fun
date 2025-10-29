@@ -1,11 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-  <url>
-    <loc>https://jumpandfun.rs/</loc>
-    <lastmod>2024-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+<url>
+  <loc>https://www.jumpandfun.rs/</loc>
+  <lastmod>2025-10-14T11:18:38+00:00</lastmod>
+  <priority>1.0</priority>
+</url>
+
+<url>
+  <loc>https://www.jumpandfun.rs/programs/bubble-house</loc>
+  <lastmod>2025-10-14T11:18:38+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://www.jumpandfun.rs/programs/veliki-dvorac</loc>
+  <lastmod>2025-10-14T11:18:38+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://www.jumpandfun.rs/programs/mali-dvorac</loc>
+  <lastmod>2025-10-14T11:18:38+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://www.jumpandfun.rs/paketi</loc>
+  <lastmod>2025-10-14T11:18:38+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
+
+<url>
+  <loc>https://www.jumpandfun.rs/gallery</loc>
+  <lastmod>2025-10-14T11:18:38+00:00</lastmod>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://www.jumpandfun.rs/rezervacije</loc>
+  <lastmod>2025-10-14T11:18:38+00:00</lastmod>
+  <priority>0.9</priority>
+</url>
 
 </urlset>
