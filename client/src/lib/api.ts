@@ -9,7 +9,7 @@ type ReservationData = {
     specialRequests?: string;
 }
 
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000"
+const BASE_URL = "https://jumpandfun-production.up.railway.app"
 
 export const submitReservation = async (data: ReservationData) => {
     console.log("Sending request to:", BASE_URL);
