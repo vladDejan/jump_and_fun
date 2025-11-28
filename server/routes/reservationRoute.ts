@@ -1,11 +1,12 @@
 import express, { Request, Response } from "express";
 import Reservation from "../models/Reservation";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 // Korišćenje interfejsa iz modela za tipizaciju podataka u zahtevu
 import ReservationAttributes from "../models/Reservation";
 
 const router = express.Router();
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 router.post(
   "/submit",
@@ -57,32 +58,13 @@ router.post(
       </div>
     `;
 
-      // Konfigurisanje Nodemailer transportera
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS, // Ispravljen key za lozinku
-        },
-      });
-
-      // Opcije za slanje email-a
-      const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: "jumpandfunserbia@gmail.com",
-        subject: "Nova Rezervacija",
+      await resend.emails.send({
+        from: 'onboarding@resend.dev',
+        to: 'jumpandfunserbia@gmail.com',
+        replyTo: email,
+        subject: 'Nova Rezervacija',
         html: htmlContent,
-      };
-      transporter.verify((error, success) => {
-  if (error) {
-    console.error("Email transporter error:", error);
-  } else {
-    console.log("Email transporter ready:", success);
-  }
-});
-
-      // Slanje email-a
-      await transporter.sendMail(mailOptions);
+      })
 
       res.status(201).json({
         message:
