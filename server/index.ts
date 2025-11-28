@@ -17,8 +17,14 @@ const port: number = Number(process.env.PORT) || 5000;
 
 // Omogućava CORS kako bi aplikacija bila dostupna iz različitih domena
 app.use(cors({
-  origin: '*',
+  origin: [
+    "https://jump-and-fun.vercel.app",  
+    "https://www.jumpandfun.rs",
+    "http://localhost:5173"
+  ],
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 app.use(bodyParser.json());
 
