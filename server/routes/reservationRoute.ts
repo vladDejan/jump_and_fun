@@ -6,6 +6,12 @@ import { Resend } from "resend";
 import ReservationAttributes from "../models/Reservation";
 
 const router = express.Router();
+// ← DODAJ OVO ZA DEBUG:
+console.log('=== RESEND DEBUG ===');
+console.log('API Key exists:', !!process.env.RESEND_API_KEY);
+console.log('API Key first 10 chars:', process.env.RESEND_API_KEY?.substring(0, 10));
+console.log('All env keys:', Object.keys(process.env).filter(k => k.includes('RESEND')));
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 router.post(

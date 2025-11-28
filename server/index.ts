@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 //Uvozi Express framework za izgradnju web servera.
 import express, { Request, Response } from "express";
 //Cross-Origin Resource Sharing, omogucava komunikaciju sa frontom
@@ -6,7 +7,6 @@ import db from "./models/index";//Config baze podataka
 import reservationRoute from "./routes/reservationRoute";//Rute baze podataka
 //Middleware za parsiranje JSON podataka iz HTTP zahteva.
 import bodyParser from "body-parser";
-
 import "./models/Reservation";
 
 // Kreiranje Express aplikacije
