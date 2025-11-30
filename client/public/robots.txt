@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://jumpandfun.rs/sitemap.xml
+Sitemap: https://www.jumpandfun.rs/sitemap.xml
