@@ -1,0 +1,34 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/programs/bubble-house",
+      "destination": "/programs/bubble-house/index.html"
+    },
+    {
+      "source": "/programs/veliki-dvorac",
+      "destination": "/programs/veliki-dvorac/index.html"
+    },
+    {
+      "source": "/programs/mali-dvorac",
+      "destination": "/programs/mali-dvorac/index.html"
+    },
+    {
+      "source": "/paketi",
+      "destination": "/paketi/index.html"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/gallery/index.html"
+    },
+    {
+      "source": "/rezervacije",
+      "destination": "/rezervacije/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
