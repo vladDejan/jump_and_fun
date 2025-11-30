@@ -1,4 +1,5 @@
 import { Card, CardContent } from "../components/ui/card";
+import { Helmet } from "react-helmet-async";
 import BgImg from "../assets/images/bg_package1.webp";
 import {
   Cake,
@@ -42,6 +43,31 @@ export const Packages = () => {
   };
 
   return (
+    <>
+    <Helmet>
+        <title>Paketi - Jump and Fun | Izaberite Paket za Dečiji Rođendan</title>
+        <meta 
+          name="description" 
+          content="Pogledajte naše pakete za dečije rođendane u Novom Sadu: Bubble House, veliki i mali dvorac. Različiti programi za krštenja, venčanja, gender reveal i proslave. Rezervišite odmah!" 
+        />
+        <link rel="canonical" href="https://www.jumpandfun.rs/paketi" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Paketi - Jump and Fun" />
+        <meta property="og:description" content="Izaberite savršen paket za dečiji rođendan: Bubble House, dvorci, dekoracije i više. Novi Sad i okolina." />
+        <meta property="og:url" content="https://www.jumpandfun.rs/paketi" />
+        <meta property="og:image" content="https://www.jumpandfun.rs/paketi-og.jpg" />
+        <meta property="og:type" content="website" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Paketi - Jump and Fun" />
+        <meta name="twitter:description" content="Paketi za dečije rođendane, krštenja, venčanja i gender reveal u Novom Sadu." />
+        <meta name="twitter:image" content="https://www.jumpandfun.rs/paketi-og.jpg" />
+        
+        {/* Additional SEO */}
+        <meta name="keywords" content="paketi rođendan, bubble house paket, dvorac paket, dečije proslave, krštenja, venčanja, gender reveal, Novi Sad" />
+      </Helmet>
     <div className="flex flex-col w-full h-full md:mt-15 xs:mt-15">
       {/* PAKETI */}
       <div className="flex flex-col relative md:p-6 xs:p-2">
@@ -339,5 +365,6 @@ export const Packages = () => {
 
       <FooterPage className="mt-22" />
     </div>
+    </>
   );
 };

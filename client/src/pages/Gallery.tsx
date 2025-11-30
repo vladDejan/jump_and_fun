@@ -12,6 +12,7 @@ import gal15 from "./../assets/images/Gallery/gallery15.webp";
 import gal16 from "./../assets/images/Gallery/gallery16.webp";
 import galVideo from "./../assets/images/Gallery/video0.mp4";
 import "../index.css";
+import { Helmet } from "react-helmet-async";
 import { useEffect, useRef } from "react";
 import { FooterPage } from "@/components/Footer";
 
@@ -129,6 +130,29 @@ export const Gallery = () => {
   }, []);
   
   return (
+    <>
+    <Helmet>
+        <title>Galerija - Jump and Fun | Foto i Video iz Naših Proslava</title>
+        <meta 
+          name="description" 
+          content="Pogledajte galeriju fotografija i video snimaka sa dečijih proslava u Jump and Fun-u. Bubble House, dvorci na naduvavanje i nezaboravni rođendani u Novom Sadu." 
+        />
+        <link rel="canonical" href="https://www.jumpandfun.rs/gallery" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Galerija - Jump and Fun" />
+        <meta property="og:description" content="Foto i video galerija sa dečijih proslava - Bubble House, dvorci na naduvavanje i nezaboravni rođendani." />
+        <meta property="og:url" content="https://www.jumpandfun.rs/gallery" />
+        <meta property="og:image" content="https://www.jumpandfun.rs/gallery-og.jpg" />
+        <meta property="og:type" content="website" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Galerija - Jump and Fun" />
+        <meta name="twitter:description" content="Pogledajte fotografije i video snimke sa naših dečijih proslava." />
+        <meta name="twitter:image" content="https://www.jumpandfun.rs/gallery-og.jpg" />
+      </Helmet>
+
     <div className="p-4 space-y-2 mt-15 text-center">
       <h2 className="md:!text-2xl/2 xs:text-lg/2 !font-medium w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary">
         Galerija
@@ -195,5 +219,6 @@ export const Gallery = () => {
 )} */}
 <FooterPage />
     </div>
+    </>
   );
 };

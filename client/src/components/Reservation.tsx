@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import {
   Form,
   FormControl,
@@ -182,7 +183,28 @@ const preSelectedVariant: VariantType = state?.selectedVariant || "bubblehouse";
 }, [preSelectedVariant]);
 
   return (
-    <div>
+    <>
+    <Helmet>
+        <title>Rezervacija - Jump and Fun | Rezervišite Dvorac za Rođendan</title>
+        <meta 
+          name="description" 
+          content="Rezervišite Bubble House ili dvorac na naduvavanje za dečiji rođendan u Novom Sadu. Brza online rezervacija, izbor paketa i dostupnih termina. Kontaktirajte nas!" 
+        />
+        <link rel="canonical" href="https://www.jumpandfun.rs/rezervacije" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Rezervacija - Jump and Fun" />
+        <meta property="og:description" content="Rezervišite dvorac na naduvavanje za dečiji rođendan. Online forma, brza potvrda termina." />
+        <meta property="og:url" content="https://www.jumpandfun.rs/rezervacije" />
+        <meta property="og:image" content="https://www.jumpandfun.rs/rezervacija-og.jpg" />
+        <meta property="og:type" content="website" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Rezervacija - Jump and Fun" />
+        <meta name="twitter:description" content="Rezervišite dvorac na naduvavanje za dečiji rođendan u Novom Sadu." />
+        <meta name="twitter:image" content="https://www.jumpandfun.rs/rezervacija-og.jpg" />
+      </Helmet>
       <div className="w-full relative md:h-screen xs:h-auto xs:mb-0 xs:mt-15 md:mt-20 md:mb-0 flex flex-col justify-center items-center">
         <div className="md:w-fit xs:w-full xs:px-2 flex flex-col justify-center items-center text-center">
           <h2 className="md:!text-2xl/2 xs:!text-2xl/2 !font-medium w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary">
@@ -547,6 +569,6 @@ const preSelectedVariant: VariantType = state?.selectedVariant || "bubblehouse";
         </div>
       </div>
       <FooterPage />
-    </div>
+    </>
   );
 };

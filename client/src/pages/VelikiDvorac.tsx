@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import BigCastle0 from "../assets/images/castle/bigcastle0.webp";
 import BigCastle1 from "../assets/images/castle/bigcastle1.webp";
 import BigCastle2 from "../assets/images/castle/bigcastle2.webp";
@@ -60,7 +61,20 @@ export const VelikiDvorac = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <>
+    <Helmet>
+        <title>Elegantni Beli Dvorac - Iznajmljivanje za Venčanja i Proslave | Jump and Fun</title>
+        <meta 
+          name="description" 
+          content="Iznajmite elegantni beli dvorac na naduvavanje za venčanja, krštenja i svečane proslave u Novom Sadu. Kapacitet do 10 dece, montaža uključena. Rezervišite odmah!" 
+        />
+        <link rel="canonical" href="https://www.jumpandfun.rs/programs/veliki-dvorac" />
+        
+        <meta property="og:title" content="Elegantni Beli Dvorac - Jump and Fun" />
+        <meta property="og:description" content="Dvorac na naduvavanje za venčanja, krštenja i luksuzne rođendane. Najtraženiji model u Novom Sadu." />
+        <meta property="og:image" content="https://www.jumpandfun.rs/bigcastle2.webp" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/******* DESKTOP *******/}
       <div className="p-6 mt-15 justify-center items-center flex-col hidden md:flex">
         <h2 className="md:!text-2xl/2 xs:text-lg/2 !font-medium w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary">
@@ -189,6 +203,6 @@ export const VelikiDvorac = () => {
       <div className="mt-22">
         <FooterPage />
       </div>
-    </div>
+    </>
   );
 };

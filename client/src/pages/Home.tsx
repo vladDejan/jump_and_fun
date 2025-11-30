@@ -11,7 +11,7 @@ export const Home = () => {
       transition: {
         duration: 2,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     },
     animate2: {
@@ -19,7 +19,7 @@ export const Home = () => {
       transition: {
         duration: 2.5,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     },
     animate3: {
@@ -27,7 +27,7 @@ export const Home = () => {
       transition: {
         duration: 3,
         repeat: Infinity,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     },
   };

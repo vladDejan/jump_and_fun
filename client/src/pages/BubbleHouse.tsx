@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import BubbleHouse0 from "../assets/images/bubble/bubble0.webp";
 import BubbleHouse1 from "../assets/images/bubble/bubble1.webp";
 import BubbleHouse2 from "../assets/images/bubble/bubble2.webp";
@@ -62,6 +63,19 @@ export const BubbleHouse = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Bubble House - Iznajmljivanje za Dečije Proslave | Jump and Fun</title>
+        <meta 
+          name="description" 
+          content="Iznajmite Bubble House na naduvavanje za krštenja, rođendane i svečane proslave u Novom Sadu." 
+        />
+        <link rel="canonical" href="https://www.jumpandfun.rs/programs/bubble-house" />
+        
+        <meta property="og:title" content="Bubble House - Jump and Fun" />
+        <meta property="og:description" content="Bubble House savršen za krštenja i rođendane." />
+        <meta property="og:image" content="https://www.jumpandfun.rs/bubble0.webp" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/******* DESKTOP *******/}
       <div className="p-6 mt-15 justify-center items-center flex-col hidden md:flex">
   <h2 className="md:!text-2xl/2 w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary !font-medium">

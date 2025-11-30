@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Castle0 from "../assets/images/castle/castle0.webp";
 import Castle1 from "../assets/images/castle/castle1.webp";
 import Castle2 from "../assets/images/castle/castle2.webp";
@@ -61,7 +62,20 @@ export const MaliDvorac = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>Mali Beli Dvorac - Iznajmljivanje za Dečije Proslave | Jump and Fun</title>
+        <meta 
+          name="description" 
+          content="Iznajmite Mali Beli Dvorac na naduvavanje za krštenja, rođendane i svečane proslave u Novom Sadu. Bazen sa lopticama uključen!" 
+        />
+        <link rel="canonical" href="https://www.jumpandfun.rs/programs/mali-dvorac" />
+        
+        <meta property="og:title" content="Mali Beli Dvorac - Jump and Fun" />
+        <meta property="og:description" content="Mali beli dvorac savršen za krštenja i rođendane sa bazenom sa lopticama." />
+        <meta property="og:image" content="https://www.jumpandfun.rs/castle1.webp" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/******* DESKTOP *******/}
       <div className="p-6 mt-15 justify-center items-center flex-col hidden md:flex">
         <h2 className="md:!text-2xl/2 xs:text-lg/2 !font-medium w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary">
@@ -190,6 +204,6 @@ export const MaliDvorac = () => {
       <div className="mt-22">
         <FooterPage />
       </div>
-    </div>
+    </>
   );
 };
