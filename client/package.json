@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview --port 4173",
-    "build:full": "npm run build && node scripts/prerender.js"
+    "build:full": "npm run build && node scripts/prerender.js",
+    "build:deploy": "npm run build:full && vercel --prod --cwd dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.3",
