@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm run build:full",
+  "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
