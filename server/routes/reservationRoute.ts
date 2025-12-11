@@ -70,7 +70,7 @@ console.log('Recipient email:', email);
 
 try {
   const emailResult = await resend.emails.send({
-    from: 'onboarding@resend.dev',
+    from: 'noreply@send.jumpandfun.rs',
     to: 'jumpandfunserbia@gmail.com',
     replyTo: email,
     subject: 'Nova Rezervacija',
