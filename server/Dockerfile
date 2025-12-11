@@ -17,7 +17,7 @@ RUN npm install -g typescript
 COPY . .
 
 # 6. Transpile TypeScript
-RUN tsc
+RUN rm -rf dist && tsc
 
 # 7. Expose port (ako koristiš)
 EXPOSE 5000
