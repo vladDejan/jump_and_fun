@@ -1,18 +1,38 @@
 import express, { Request, Response } from "express";
 import Reservation from "../models/Reservation";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 // Korišćenje interfejsa iz modela za tipizaciju podataka u zahtevu
 import ReservationAttributes from "../models/Reservation";
 
 const router = express.Router();
-// ← DODAJ OVO ZA DEBUG:
-console.log('=== RESEND DEBUG ===');
-console.log('API Key exists:', !!process.env.RESEND_API_KEY);
-console.log('API Key first 10 chars:', process.env.RESEND_API_KEY?.substring(0, 10));
-console.log('All env keys:', Object.keys(process.env).filter(k => k.includes('RESEND')));
+// Debug log
+console.log('=== GMAIL OAUTH2 DEBUG ===');
+console.log('Email user exists:', !!process.env.EMAIL_USER);
+console.log('Client ID exists:', !!process.env.GMAIL_CLIENT_ID);
+console.log('Client Secret exists:', !!process.env.GMAIL_CLIENT_SECRET);
+console.log('Refresh Token exists:', !!process.env.GMAIL_REFRESH_TOKEN);
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Konfigurisanje Nodemailer transportera sa OAuth2
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    type: 'OAuth2',
+    user: process.env.EMAIL_USER,
+    clientId: process.env.GMAIL_CLIENT_ID,
+    clientSecret: process.env.GMAIL_CLIENT_SECRET,
+    refreshToken: process.env.GMAIL_REFRESH_TOKEN,
+  },
+});
+
+// Verifikacija transportera
+transporter.verify((error, success) => {
+  if (error) {
+    console.error('Gmail transporter error:', error);
+  } else {
+    console.log('✅ Gmail transporter ready!');
+  }
+});
 
 router.post(
   "/submit",
@@ -64,28 +84,30 @@ router.post(
       </div>
     `;
 
+
       console.log('=== EMAIL SENDING START ===');
-console.log('Resend API Key exists:', !!process.env.RESEND_API_KEY);
-console.log('Recipient email:', email);
+      console.log('Recipient email:', email);
 
-try {
-  const emailResult = await resend.emails.send({
-    from: 'noreply@jumpandfun.rs',
-    to: 'jumpandfunserbia@gmail.com',
-    replyTo: email,
-    subject: 'Nova Rezervacija',
-    html: htmlContent,
-  });
-  
-  console.log('✅ Email sent successfully!');
-  console.log('Email result:', JSON.stringify(emailResult, null, 2));
-} catch (emailError) {
-  console.error('❌ Email sending FAILED:');
-  console.error('Error:', emailError);
-  console.error('Error details:', JSON.stringify(emailError, null, 2));
-}
+      try {
+        const mailOptions = {
+          from: process.env.EMAIL_USER, // jumpandfunserbia@gmail.com
+          to: 'jumpandfunserbia@gmail.com',
+          replyTo: email, // Email korisnika iz forme
+          subject: 'Nova Rezervacija',
+          html: htmlContent,
+        };
 
-console.log('=== EMAIL SENDING END ===');
+        await transporter.sendMail(mailOptions);
+        
+        console.log('✅ Email sent successfully!');
+      } catch (emailError) {
+        console.error('❌ Email sending FAILED:');
+        console.error('Error:', emailError);
+      }
+
+      console.log('=== EMAIL SENDING END ===');
+
+
       res.status(201).json({
         message:
           "Rezervacija uspešno sačuvana i poslata, očekujte odgovor u što bržem vremenskom periodu.",
