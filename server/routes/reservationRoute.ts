@@ -64,14 +64,28 @@ router.post(
       </div>
     `;
 
-      await resend.emails.send({
-        from: 'noreply@send.jumpandfun.rs',
-        to: 'jumpandfunserbia@gmail.com',
-        replyTo: email,
-        subject: 'Nova Rezervacija',
-        html: htmlContent,
-      })
+      console.log('=== EMAIL SENDING START ===');
+console.log('Resend API Key exists:', !!process.env.RESEND_API_KEY);
+console.log('Recipient email:', email);
 
+try {
+  const emailResult = await resend.emails.send({
+    from: 'onboarding@resend.dev',
+    to: 'jumpandfunserbia@gmail.com',
+    replyTo: email,
+    subject: 'Nova Rezervacija',
+    html: htmlContent,
+  });
+  
+  console.log('✅ Email sent successfully!');
+  console.log('Email result:', JSON.stringify(emailResult, null, 2));
+} catch (emailError) {
+  console.error('❌ Email sending FAILED:');
+  console.error('Error:', emailError);
+  console.error('Error details:', JSON.stringify(emailError, null, 2));
+}
+
+console.log('=== EMAIL SENDING END ===');
       res.status(201).json({
         message:
           "Rezervacija uspešno sačuvana i poslata, očekujte odgovor u što bržem vremenskom periodu.",
