@@ -73,7 +73,7 @@ try {
     from: 'noreply@jumpandfun.rs',
     to: 'jumpandfunserbia@gmail.com',
     replyTo: email,
-    subject: 'Nova Rezervacija',
+    subject: `Nova Rezervacija: ${name} - ${formattedDate}`,
     html: htmlContent,
   });
   
