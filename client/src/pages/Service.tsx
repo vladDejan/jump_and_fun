@@ -220,7 +220,7 @@ export const ServicesPage: React.FC = () => {
                         category === "hobotnica" ? "svgActive" : ""
                       }`}
                     />
-                    Mali Dvorac
+                    Hobotnica
                   </button>
                 </div>
               </header>
