@@ -64,7 +64,7 @@ export const singles: Package[] = [
     title: `🐙 Hobotnica Tematski Dvorac`,
     description1: `Hobotnica Tematski Dvorac je pravi hit na svakoj proslavi! Veselih boja i atraktivnog dizajna, privlači pažnju dece svih uzrasta i garantuje sate bezbrižne zabave.`,
     price: `💶 250€`,
-    age: `2–12 godina`,
+    age: `1–10 godina`,
     dimension: `Dimenzije(D×Š×V): 5 × 5 × 3.55 m`,
     capacity: `Kapacitet: do 12 dece`,
     time: `Trajanje: 4h`,
