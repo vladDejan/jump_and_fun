@@ -48,7 +48,7 @@ Reservation.init(
         primaryKey: true, // Postavlja ga kao primarni ključ
     },
   variant: {
-    type: DataTypes.ENUM("bouncecastle", "bubblehouse", "minibouncecastle", "paket1", "paket2", "paket3", "paket4"),
+    type: DataTypes.ENUM("bouncecastle", "bubblehouse", "minibouncecastle", "hobotnica", "paket1", "paket2", "paket3", "paket4"),
     allowNull: false,
   },
   decorations: {

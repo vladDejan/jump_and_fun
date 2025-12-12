@@ -11,6 +11,7 @@ import { VelikiDvorac } from "./pages/VelikiDvorac";
 import { MaliDvorac } from "./pages/MaliDvorac";
 import { ScrollToTop } from "./components/ScrollToTop";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import { Octopus } from "./pages/Octopus";
 
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/programs/bubble-house" element={<BubbleHouse />} />
           <Route path="/programs/veliki-dvorac" element={<VelikiDvorac />} />
           <Route path="/programs/mali-dvorac" element={<MaliDvorac />} />
+          <Route path="/programs/hobotnica" element={<Octopus />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </Router>

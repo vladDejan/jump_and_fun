@@ -12,6 +12,7 @@ import { ChevronDown } from "lucide-react";
 import CastleIcon from "../assets/images/castleLink.svg?react";
 import BubbleIcon from "../assets/images/bubbleLink.svg?react";
 import MiniCastleIcon from "../assets/images/MiniCastleLink.svg?react";
+import OctopusIcon from "../assets/images/octopusLink.svg?react";
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ export const NavBar = () => {
 
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-quinary transition ease transform duration-300`;
 
-   // prati scroll smer
+  // prati scroll smer
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
@@ -57,7 +58,11 @@ export const NavBar = () => {
   };
 
   return (
-    <div className={`md:fixed xs:absolute top-0 left-0 xs:top-0 xs:bg-white/0 md:bg-white/70 w-full md:flex md:flex-col md:items-center md:justify-center md:shadow-md md:z-50 md:transition-transform md:duration-500 ${showNavbar ? "md:translate-y-0" : "md:-translate-y-full"}`}>
+    <div
+      className={`md:fixed xs:absolute top-0 left-0 xs:top-0 xs:bg-white/0 md:bg-white/70 w-full md:flex md:flex-col md:items-center md:justify-center md:shadow-md md:z-50 md:transition-transform md:duration-500 ${
+        showNavbar ? "md:translate-y-0" : "md:-translate-y-full"
+      }`}
+    >
       {/* Marquee oglas */}
       <div className="overflow-hidden whitespace-nowrap xs:w-3/4 xs:pt-2 md:pt-0 md:w-1/3 md:flex">
         <div className="inline-block animate-marquee">
@@ -69,14 +74,16 @@ export const NavBar = () => {
           <span className="text-secondary">🌼Paket 4:</span> Veliki dvorac +
           Mali beli dvorac + Bubble House{" "}
           <span className="text-secondary ml-2">+ Dodaci:</span>{" "}
-          <span className="ml-2">🏹🎯 Luk i strela 500rsd</span>{" "}
-          <span className="ml-2">⭕🏀 Koš sa loptom 500rsd</span>{" "}
-          <span className="ml-2">🥅⚽ Golovi i lopta 500rsd</span> 📢
+          <span className="ml-2">🏹🎯 Luk i strela 10€</span>{" "}
+          <span className="ml-2">⭕🏀 Koš sa loptom 10€</span>{" "}
+          <span className="ml-2">🥅⚽ Golovi i lopta 10€</span> 📢
         </div>
       </div>
 
       {/* Hamburger meni dugme */}
-      <div className="xs:flex xs:fixed xs:top-2 xs:right-6 md:hidden xs:z-100 lg:hidden">
+      <div className={`xs:flex xs:fixed xs:top-2 xs:right-6 md:hidden xs:z-100 lg:hidden transition-transform duration-500 ${
+  showNavbar ? "translate-x-0" : "translate-x-20"
+}`}>
         <button
           className="flex flex-col h-12 w-12 rounded justify-center items-center group"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -109,7 +116,11 @@ export const NavBar = () => {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger
-                className={`text-quinary relative after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100`}
+                className={`relative after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 ${
+                  location.pathname.startsWith("/programs")
+                    ? "[&>span]:!text-primary"
+                    : "text-quinary"
+                }`}
               >
                 <span className="nav-text capitalize relative inline-block w-full">
                   Program
@@ -150,6 +161,17 @@ export const NavBar = () => {
                       </Link>
                     </NavigationMenuLink>
                   </li>
+                  <li>
+                    <NavigationMenuLink className="flex flex-row" asChild>
+                      <Link
+                        to="/programs/hobotnica"
+                        className="text-sm hover:text-secondary transition-colors"
+                      >
+                        <OctopusIcon className="" />
+                        Hobotnica
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -160,7 +182,7 @@ export const NavBar = () => {
             key={label}
             to={to}
             className={`flex cursor-pointer items-center relative after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-primary after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 ${
-              isActive(to) ? "text-primary font-semibold" : "text-quinary"
+              isActive(to) ? "[&>span]:!text-primary" : "text-quinary"
             }`}
             onClick={() => setIsMenuOpen(false)}
           >
@@ -182,10 +204,16 @@ export const NavBar = () => {
       >
         <div className="w-full">
           <button
-            className="w-full text-center text-base text-quinary hover:text-primary flex justify-center items-center"
+            className={`w-full text-center text-base text-quinary hover:text-primary flex justify-center items-center ${
+                  location.pathname.startsWith("/programs")
+                    ? "[&>span]:!text-primary"
+                    : "text-quinary"
+                }`}
             onClick={() => setIsProgramOpen(!isProgramOpen)}
           >
+            <span>
             Program
+            </span>
             <span
               className={`transition-transform ${
                 isProgramOpen ? "rotate-180" : "rotate-0"
@@ -227,6 +255,16 @@ export const NavBar = () => {
                   Mali dvorac
                 </Link>
               </div>
+              <div className="flex flex-row justify-center items-center">
+                <Link
+                  to="/programs/hobotnica"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-sm flex text-quinary justify-center items-center hover:text-primary"
+                >
+                  <OctopusIcon className="flex w-6 h-6 mr-1" />
+                  Hobotnica
+                </Link>
+              </div>
             </div>
           )}
         </div>
@@ -236,7 +274,7 @@ export const NavBar = () => {
             to={to}
             onClick={() => setIsMenuOpen(false)}
             className={`text-left text-base hover:text-primary transition-colors ${
-              isActive(to) ? "text-primary font-semibold" : "text-quinary"
+              isActive(to) ? "!text-primary" : "text-quinary"
             }`}
           >
             {label}

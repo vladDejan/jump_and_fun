@@ -62,6 +62,7 @@ const schema = z.object({
       "bouncecastle",
       "bubblehouse",
       "minibouncecastle",
+      "hobotnica",
       "paket1",
       "paket2",
       "paket3",
@@ -298,6 +299,12 @@ const preSelectedVariant: VariantType = state?.selectedVariant || "bubblehouse";
                                         value="minibouncecastle"
                                       >
                                         Mali Dvorac
+                                      </SelectItem>
+                                      <SelectItem
+                                        className="cursor-pointer"
+                                        value="hobotnica"
+                                      >
+                                        Hobotnica
                                       </SelectItem>
                                       <SelectItem
                                         className="cursor-pointer"

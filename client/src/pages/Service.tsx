@@ -1,9 +1,11 @@
 import { castleService } from "../assets/services/castle";
 import { bubbleService } from "../assets/services/bubble";
 import { miniCastleService } from "../assets/services/miniCastle";
+import { octopusService } from "../assets/services/octopus";
 import CastleIcon from "../assets/images/castleLink.svg?react";
 import BubbleIcon from "../assets/images/bubbleLink.svg?react";
 import MiniCastleIcon from "../assets/images/MiniCastleLink.svg?react";
+import OctopusIcon from "../assets/images/octopusLink.svg?react";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../index.css";
@@ -20,7 +22,7 @@ interface ServiceItem {
 
 export const ServicesPage: React.FC = () => {
   //Trenutno izabrana kategorija ("bubble" ili "castle").
-  const [category, setCategory] = useState<"bubble" | "castle" | "miniCastle">(
+  const [category, setCategory] = useState<"bubble" | "castle" | "miniCastle" | "hobotnica">(
     "bubble"
   );
   //Niz objekata koji se prikazuju (zavisi od kategorije).
@@ -34,13 +36,13 @@ export const ServicesPage: React.FC = () => {
 
 
   //Menjanje kategorije i postavljanje odgovarajućeg niza servisa.
-  const changeCategory = (newCategory: "bubble" | "castle" | "miniCastle") => {
+  const changeCategory = (newCategory: "bubble" | "castle" | "miniCastle" | "hobotnica") => {
     setCategory(newCategory);
     setItems(newCategory === "bubble"
       ? bubbleService
       : newCategory === "castle"
       ? castleService
-      : miniCastleService);
+      : newCategory === "miniCastle" ? miniCastleService : octopusService);
   };
 
   useEffect(() => {
@@ -83,7 +85,7 @@ export const ServicesPage: React.FC = () => {
         {/* Kada je veci ekran nema sticky navigaciju */}
         {!showStickyNav && (
           <div className="hidden md:flex md:flex-row md:justify-center md:items-center md:w-full">
-            <header className="flex gap-10 bg-white rounded-full items-center justify-center p-4 w-1/4">
+            <header className="flex gap-10 bg-white rounded-full items-center justify-center p-4 w-2/4">
               <div className="flex flex-col items-center justify-center">
                 <button
                   className={`cursor-pointer items-center justify-center flex flex-col leading-6 ${
@@ -129,6 +131,21 @@ export const ServicesPage: React.FC = () => {
                   Mali Dvorac
                 </button>
               </div>
+              <div className="flex flex-col">
+                <button
+                  className={`cursor-pointer items-center justify-center flex flex-col leading-6 ${
+                    category === "hobotnica" ? "text-primary" : ""
+                  }`}
+                  onClick={() => changeCategory("hobotnica")}
+                >
+                  <OctopusIcon
+                    className={`svg-active ${
+                      category === "hobotnica" ? "svgActive" : ""
+                    }`}
+                  />
+                  Hobotnica
+                </button>
+              </div>
             </header>
           </div>
         )}
@@ -145,7 +162,7 @@ export const ServicesPage: React.FC = () => {
               exit={{ y: 100, opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              <header className="flex gap-12 w-full bg-quaternary rounded-t-2xl justify-center py-4">
+              <header className="flex gap-10 w-full bg-quaternary rounded-t-2xl justify-center py-4">
                 <div className="flex flex-col">
                   <button
                     className={`cursor-pointer !text-xs items-center justify-center flex flex-col leading-6 ${
@@ -186,6 +203,21 @@ export const ServicesPage: React.FC = () => {
                     <MiniCastleIcon
                       className={`svg-active w-6 h-6 ${
                         category === "miniCastle" ? "svgActive" : ""
+                      }`}
+                    />
+                    Mali Dvorac
+                  </button>
+                </div>
+                <div className="flex flex-col">
+                  <button
+                    className={`cursor-pointer !text-xs items-center justify-center flex flex-col leading-6 ${
+                      category === "hobotnica" ? "text-primary" : ""
+                    }`}
+                    onClick={() => changeCategory("hobotnica")}
+                  >
+                    <OctopusIcon
+                      className={`svg-active w-6 h-6 ${
+                        category === "hobotnica" ? "svgActive" : ""
                       }`}
                     />
                     Mali Dvorac
