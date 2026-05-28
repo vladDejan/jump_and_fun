@@ -2,10 +2,12 @@ import { castleService } from "../assets/services/castle";
 import { bubbleService } from "../assets/services/bubble";
 import { miniCastleService } from "../assets/services/miniCastle";
 import { octopusService } from "../assets/services/octopus";
+import { softplayService } from "../assets/services/softplay";
 import CastleIcon from "../assets/images/castleLink.svg?react";
 import BubbleIcon from "../assets/images/bubbleLink.svg?react";
 import MiniCastleIcon from "../assets/images/MiniCastleLink.svg?react";
 import OctopusIcon from "../assets/images/octopusLink.svg?react";
+import SoftIcon from "../assets/images/softplayLink.svg?react";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../index.css";
@@ -22,7 +24,7 @@ interface ServiceItem {
 
 export const ServicesPage: React.FC = () => {
   //Trenutno izabrana kategorija ("bubble" ili "castle").
-  const [category, setCategory] = useState<"bubble" | "castle" | "miniCastle" | "hobotnica">(
+  const [category, setCategory] = useState<"bubble" | "castle" | "miniCastle" | "hobotnica"  | "softplay">(
     "bubble"
   );
   //Niz objekata koji se prikazuju (zavisi od kategorije).
@@ -36,13 +38,16 @@ export const ServicesPage: React.FC = () => {
 
 
   //Menjanje kategorije i postavljanje odgovarajućeg niza servisa.
-  const changeCategory = (newCategory: "bubble" | "castle" | "miniCastle" | "hobotnica") => {
+  const changeCategory = (newCategory: "bubble" | "castle" | "miniCastle" | "hobotnica" | "softplay") => {
     setCategory(newCategory);
     setItems(newCategory === "bubble"
       ? bubbleService
       : newCategory === "castle"
       ? castleService
-      : newCategory === "miniCastle" ? miniCastleService : octopusService);
+      : newCategory === "miniCastle" 
+      ? miniCastleService 
+      : newCategory === "hobotnica" ? 
+      octopusService : softplayService);
   };
 
   useEffect(() => {
@@ -146,6 +151,21 @@ export const ServicesPage: React.FC = () => {
                   Hobotnica
                 </button>
               </div>
+              <div className="flex flex-col">
+                <button
+                  className={`cursor-pointer items-center justify-center flex flex-col leading-6 ${
+                    category === "softplay" ? "text-primary" : ""
+                  }`}
+                  onClick={() => changeCategory("softplay")}
+                >
+                  <SoftIcon
+                    className={`svg-active ${
+                      category === "softplay" ? "svgActive" : ""
+                    }`}
+                  />
+                  Soft Play
+                </button>
+              </div>
             </header>
           </div>
         )}
@@ -162,7 +182,8 @@ export const ServicesPage: React.FC = () => {
               exit={{ y: 100, opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              <header className="flex gap-10 w-full bg-quaternary rounded-t-2xl justify-center py-4">
+              <header className="flex w-full bg-quaternary rounded-t-2xl py-4 overflow-x-auto">
+                <div className="flex gap-10 min-w-max px-4 mx-auto">
                 <div className="flex flex-col">
                   <button
                     className={`cursor-pointer !text-xs items-center justify-center flex flex-col leading-6 ${
@@ -222,6 +243,22 @@ export const ServicesPage: React.FC = () => {
                     />
                     Hobotnica
                   </button>
+                </div>
+                <div className="flex flex-col">
+                  <button
+                    className={`cursor-pointer !text-xs items-center justify-center flex flex-col leading-6 ${
+                      category === "softplay" ? "text-primary" : ""
+                    }`}
+                    onClick={() => changeCategory("softplay")}
+                  >
+                    <SoftIcon
+                      className={`svg-active w-6 h-6 ${
+                        category === "softplay" ? "svgActive" : ""
+                      }`}
+                    />
+                    Soft Play
+                  </button>
+                </div>
                 </div>
               </header>
             </motion.div>

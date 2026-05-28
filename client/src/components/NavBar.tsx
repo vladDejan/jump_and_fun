@@ -13,6 +13,7 @@ import CastleIcon from "../assets/images/castleLink.svg?react";
 import BubbleIcon from "../assets/images/bubbleLink.svg?react";
 import MiniCastleIcon from "../assets/images/MiniCastleLink.svg?react";
 import OctopusIcon from "../assets/images/octopusLink.svg?react";
+import SoftIcon from "../assets/images/softplayLink.svg?react";
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -172,6 +173,17 @@ export const NavBar = () => {
                       </Link>
                     </NavigationMenuLink>
                   </li>
+                  <li>
+                    <NavigationMenuLink className="flex flex-row" asChild>
+                      <Link
+                        to="/programs/softplay"
+                        className="text-sm hover:text-secondary transition-colors"
+                      >
+                        <SoftIcon className="" />
+                        Soft Play
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -263,6 +275,16 @@ export const NavBar = () => {
                 >
                   <OctopusIcon className="flex w-6 h-6 mr-1" />
                   Hobotnica
+                </Link>
+              </div>
+              <div className="flex flex-row justify-center items-center">
+                <Link
+                  to="/programs/softplay"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-sm flex text-quinary justify-center items-center hover:text-primary"
+                >
+                  <SoftIcon className="flex w-6 h-6 mr-1" />
+                  Soft Play
                 </Link>
               </div>
             </div>

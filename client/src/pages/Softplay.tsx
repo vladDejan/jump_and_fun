@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import Castle0 from "../assets/images/castle/castle0.webp";
-import Castle1 from "../assets/images/castle/castle1.webp";
-import Castle2 from "../assets/images/castle/castle2.webp";
-import Castle3 from "../assets/images/castle/castle3.webp";
+import Soft0 from "../assets/images/softplay/soft0.webp";
+import Soft1 from "../assets/images/softplay/soft1.webp";
+import Soft2 from "../assets/images/softplay/soft2.webp";
+import Soft3 from "../assets/images/softplay/soft3.webp";
 import "../index.css";
 import {
   Accordion,
@@ -26,60 +26,58 @@ type Card = {
 const cards: Card[] = [
   {
     id: 1,
-    title: "🤍 Mali Beli Dvorac",
-    image: Castle0,
+    title: "🦥 Soft Play",
+    image: Soft0,
     description:
-      "Mali beli dvorac je savršen izbor za krštenja, rođendane i manje svečane proslave. U njegovom sastavu nalazi se i bazen sa lopticama, koji pruža dodatnu zabavu i sigurno će okupirati mališane tokom celog događaja.",
+      "Stvoren da probudi maštu i osmeh najmlađih! Soft Play pruža bezbrižnu igru u sigurnom okruženju i postaje glavno mesto za smeh, druženje i istraživanje na svakom događaju.",
   },
   {
     id: 2,
     title: "Karakteristike",
-    image: Castle1,
-    description: `• Preporučeni uzrast: 1–6 godina
-• Kapacitet: Do 5 dece istovremeno
-• Dimenzije: 3 m (širina) × 3 m (dužina) × 2,5 m (visina)
-• Dodaci: Ugrađeni bazen sa lopticama
-• Uključeno u cenu: Montaža dvorca i jedna osoba zadužena za bezbedno i pravilno korišćenje
+    image: Soft1,
+    description: `• Preporučeni uzrast: 1–12 godina
+• Dimenzije: Fleksibilno, zavisi od raspoloživog prostora
+• Uključeno u cenu: Montaža poligona i jedna osoba zadužena za bezbedno i pravilno korišćenje
 • Trajanje najma: 4 sata
-• Cena: 99€`,
+• Cena: 250€`,
   },
   {
     id: 3,
-    title: "🌈 Beli Dvorac Duga",
-    image: Castle2,
+    title: "",
+    image: Soft2,
     description:
-      "Ako tražite dvorac na naduvavanje koji je nežan, elegantan i bez previše boja – ovo je pravi model za vas. Namenjen je mlađoj deci i idealan je za fotografisanje i mirniju zabavu. Zahvaljujući kompaktnoj veličini, dvorac je pogodan za proslave u zatvorenom prostoru, salama ili manjim dvorištima.",
+      "Ako tražite prostor za igru koji je bezbedan i pun sadržaja – Soft Play je idealan izbor. Bazen sa lopticama, klackalice i hopper životinje čine ga savršenim za dinamičnu igru i pravu avanturu za najmlađe.",
   },
   {
     id: 4,
     title: "",
-    image: Castle3,
-    description: `📍 Dostupan za iznajmljivanje u Novom Sadu i dostavu širom Srbije. 📞 Kontaktirajte nas i obezbedite svoj termin – baloni i osmesi su zagarantovani!`,
+    image: Soft3,
+    description: `📍 Dostupan za iznajmljivanje u Novom Sadu i dostavu širom Srbije. 📞 Kontaktirajte nas i obezbedite svoj termin – zabava i osmesi su zagarantovani!`,
   },
 ];
 
-export const MaliDvorac = () => {
+export const Softplay = () => {
   const navigate = useNavigate();
 
   return (
     <>
       <Helmet>
-        <title>Mali Beli Dvorac - Iznajmljivanje za Dečije Proslave | Jump and Fun</title>
+        <title>Soft Play - Iznajmljivanje za Dečije Proslave | Jump and Fun</title>
         <meta 
           name="description" 
-          content="Iznajmite Mali Beli Dvorac na naduvavanje za krštenja, rođendane i svečane proslave u Novom Sadu. Bazen sa lopticama uključen!" 
+          content="Iznajmite Soft Play za krštenja, rođendane i svečane proslave u Novom Sadu." 
         />
-        <link rel="canonical" href="https://www.jumpandfun.rs/programs/mali-dvorac" />
+        <link rel="canonical" href="https://www.jumpandfun.rs/programs/softplay" />
         
-        <meta property="og:title" content="Mali Beli Dvorac - Jump and Fun" />
-        <meta property="og:description" content="Mali beli dvorac savršen za krštenja i rođendane sa bazenom sa lopticama." />
+        <meta property="og:title" content="Soft Play - Jump and Fun" />
+        <meta property="og:description" content="Soft Play savršen za krštenja i rođendane sa bazenom sa lopticama i mnoštvom poligona." />
         <meta property="og:image" content="https://www.jumpandfun.rs/castle1.webp" />
         <meta property="og:type" content="website" />
       </Helmet>
       {/******* DESKTOP *******/}
       <div className="p-6 mt-15 justify-center items-center flex-col hidden md:flex">
         <h2 className="md:!text-2xl/2 xs:text-lg/2 !font-medium w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary">
-           Mali Beli Dvorac
+           Soft Play
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 px-28">
           {cards.map((card, index) => (
@@ -91,7 +89,7 @@ export const MaliDvorac = () => {
       {/******* MOBILE *******/}
       <div className="p-6 xs:p-2 flex flex-col items-center mt-10 md:hidden">
         <h2 className="md:!text-4xl/2 xs:!text-2xl/2 w-fit inline-block mb-10 bg-primary pt-2 pr-2 pb-0 pl-2 text-center !text-quinary !font-medium">
-           Mali Beli Dvorac
+           Soft Play
         </h2>
         <div className="grid grid-cols-1 gap-6">
           {cards.map((card, index) => (
@@ -114,7 +112,7 @@ export const MaliDvorac = () => {
           >
             <AccordionItem value="item-1">
               <AccordionTrigger>
-                Da li je moguće produžiti najam Malog Belog Dvorca?
+                Da li je moguće produžiti najam Soft Play-a?
               </AccordionTrigger>
               <AccordionContent className="text-primary accordion-content data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up flex flex-col gap-4 text-balance accordion-content data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
                 Da. Najam po standardnoj ceni traje 4 sata i uključuje montažu,
@@ -124,7 +122,7 @@ export const MaliDvorac = () => {
 
             <AccordionItem value="item-2">
               <AccordionTrigger>
-                Gde je moguće iznajmiti Mali Beli Dvorac?
+                Gde je moguće iznajmiti Soft Play?
               </AccordionTrigger>
               <AccordionContent className="text-primary accordion-content data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up flex flex-col gap-4 text-balance">
                 Dostupan je u Novom Sadu i dostavljamo širom Srbije.
@@ -144,7 +142,7 @@ export const MaliDvorac = () => {
                 Da li se može koristiti napolju?
               </AccordionTrigger>
               <AccordionContent className="text-primary accordion-content data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up flex flex-col gap-4 text-balance">
-                Da! Mali Beli Dvorac je idealan za dvorišta, parkove i druge ravne
+                Da! Soft Play je idealan za dvorišta, parkove i druge ravne
                 površine.
               </AccordionContent>
             </AccordionItem>
@@ -152,7 +150,7 @@ export const MaliDvorac = () => {
             <AccordionItem value="item-5">
               <AccordionTrigger>Loše ili hladno vreme?</AccordionTrigger>
               <AccordionContent className="text-primary accordion-content data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up flex flex-col gap-4 text-balance">
-                Nema problema! Mali Beli Dvorac je jednako kompaktan uz unutrašnje
+                Nema problema! Soft Play je jednako kompaktan uz unutrašnje
                 dekoracije i proslave.
               </AccordionContent>
             </AccordionItem>
@@ -162,8 +160,7 @@ export const MaliDvorac = () => {
                 Može li se koristiti i za odrasle?
               </AccordionTrigger>
               <AccordionContent className="text-primary accordion-content data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up flex flex-col gap-4 text-balance">
-                Mali Beli Dvorac je prvenstveno za decu, ali se često koristi i za
-                tematske žurke. Ako imate ideju – podelite je s nama!
+                Soft Play je prvenstveno namenjen dvorac za decu, ne za odrasle.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

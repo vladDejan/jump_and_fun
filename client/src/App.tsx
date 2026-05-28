@@ -12,6 +12,7 @@ import { MaliDvorac } from "./pages/MaliDvorac";
 import { ScrollToTop } from "./components/ScrollToTop";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { Octopus } from "./pages/Octopus";
+import { Softplay } from "./pages/Softplay";
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/programs/veliki-dvorac" element={<VelikiDvorac />} />
           <Route path="/programs/mali-dvorac" element={<MaliDvorac />} />
           <Route path="/programs/hobotnica" element={<Octopus />} />
+          <Route path="/programs/softplay" element={<Softplay />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </Router>

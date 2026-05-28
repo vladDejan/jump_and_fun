@@ -3,6 +3,7 @@ import SingBubble from "../images/singbubble.webp";
 import SingCastle from "../images/singcastle.webp";
 import SingMiniCastle from "../images/singminicastle.webp";
 import SingOctopus from "../images/singOctopus.webp";
+import SingSoft from "../images/singSoft.webp";
 import { VariantType } from "./variantType";
 
 export interface Package {
@@ -25,7 +26,7 @@ export const singles: Package[] = [
     image: SingBubble,
     title: `🎈 Bubble House`,
     description1: `Hit na dečijim proslavama – bela kupola puna balona, idealna za rođendane i posebne događaje.`,
-    price: `💶 150€`,
+    price: `💶 160€`,
     age: `2–6 godina`,
     dimension: `Dimenzije(D×Š×V): 3 × 4.5 × 2.5 m`,
     capacity: `Kapacitet: do 5 dece`,
@@ -37,7 +38,7 @@ export const singles: Package[] = [
     image: SingCastle,
     title: `🤍 Elegantni beli dvorac`,
     description1: `Nezaobilazan deo svake proslave – idealan za venčanja, krštenja i dečije proslave.`,
-    price: `💶 170€`,
+    price: `💶 180€`,
     age: `2–10 godina`,
     dimension: `Dimenzije(D×Š×V): 4 × 4 × 3.55m
                            4 × 4 × 3.3m
@@ -51,7 +52,7 @@ export const singles: Package[] = [
     image: SingMiniCastle,
     title: `🤍 Mali beli dvorac`,
     description1: `Kompaktan dvorac sa bazenom loptica – idealan za rođendane, krštenja i manje proslave.`,
-    price: `💶 99€`,
+    price: `💶 130€`,
     age: `1–4 godina`,
     dimension: `Dimenzije(D×Š×V): 3 × 3 × 2.5 m`,
     capacity: `Kapacitet: do 5 dece`,
@@ -67,6 +68,18 @@ export const singles: Package[] = [
     age: `1–10 godina`,
     dimension: `Dimenzije(D×Š×V): 5 × 5 × 3.55 m`,
     capacity: `Kapacitet: do 12 dece`,
+    time: `Trajanje: 4h`,
+  },
+  {
+    id: 5,
+    variant: "softplay",
+    image: SingSoft,
+    title: `🦥 Soft Play`,
+    description1: `Soft Play set je pravi raj za najmlađe! Uz pregršt prepreka od sigurnog materijala, poziva malu decu da istražuju, penju se i provlače uz smeh i bezbrižnu zabavu na svakoj proslavi.`,
+    price: `💶 250€`,
+    age: `1–10 godina`,
+    dimension: `Funkcionalno podesivo po potrebi`,
+    capacity: `Kapacitet: do 20 dece`,
     time: `Trajanje: 4h`,
   },
 ];

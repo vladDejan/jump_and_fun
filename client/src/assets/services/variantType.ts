@@ -3,6 +3,7 @@ export type VariantType =
   | "bubblehouse"
   | "minibouncecastle"
   | "hobotnica"
+  | "softplay"
   | "paket1"
   | "paket2"
   | "paket3"
