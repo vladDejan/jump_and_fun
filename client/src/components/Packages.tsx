@@ -125,7 +125,6 @@ export const Packages = () => {
               <div className="flex flex-row gap-4 items-center justify-center mt-4">
                 {pkg.age1 && <Badge className="text-white">{pkg.age1}</Badge>}
                 {pkg.age2 && <Badge className="text-white">{pkg.age2}</Badge>}
-                {pkg.age3 && <Badge className="text-white">{pkg.age3}</Badge>}
                 {pkg.time1 && <Badge className="text-white">{pkg.time1}</Badge>}
                 {pkg.time2 && <Badge className="text-white">{pkg.time2}</Badge>}
               </div>
@@ -173,9 +172,6 @@ export const Packages = () => {
                     )}
                     {pkg.age2 && (
                       <Badge className="text-white flex">{pkg.age2}</Badge>
-                    )}
-                    {pkg.age3 && (
-                      <Badge className="text-white flex">{pkg.age3}</Badge>
                     )}
                     {pkg.time1 && (
                       <Badge className="text-white flex">{pkg.time1}</Badge>

@@ -26,16 +26,16 @@ export const packages: Package[] = [
     variant: "paket1",
     image: Package1,
     title: `🎉 Paket 1
-     Veliki & Mali Dvorac`,
+     Soft Play & Bubble House`,
     description1: `Kompletna zabava za decu svih uzrasta! 
     ✨ Idealno za rođendane, krštenja i porodične proslave, u zatvorenom i na otvorenom.`,
     description2: `
 👤 Montaža i demontaža, osoba za nadzor i bezbedno korišćenje
 
 `,
-    price: `💶 240€`,
-    age1: `Veliki Dvorac 2–10 god.`,
-    age2: `Mali Dvorac 1–6 god.`,
+    price: `💶 370€`,
+    age1: `Soft Play 1–12 god.`,
+    age2: `Bubble House 2–6 god.`,
     time1: `Trajanje 4h`,
   },
   {
@@ -51,11 +51,11 @@ export const packages: Package[] = [
 📍 Dostupno u: Novom Sadu i širom Srbije
 
 `,
-    price: `💶 280€`,
+    price: `💶 300€`,
     age1: `Veliki Dvorac 2–10 god.`,
     age2: `BubbleHouse 2–6 god.`,
     time1: `Veliki Dvorac 4h`,
-    time2: `BubbleHouse 3h`,
+    time2: `BubbleHouse 4h`,
   },
   {
     id: 3,
@@ -70,31 +70,31 @@ export const packages: Package[] = [
 📍 Dostupno u: Novom Sadu i širom Srbije
 
 `,
-    price: `💶 210€`,
+    price: `💶 250€`,
     age1: `BubbleHouse 2–6 god.`,
     age2: `Mali Dvorac 1–6 god.`,
     time1: `Mali Dvorac 4h`,
-    time2: `BubbleHouse 3h`,
+    time2: `BubbleHouse 4h`,
   },
   {
     id: 4,
     variant: "paket4",
     image: Package4,
     title: `🌟 Paket 4
-    Kompletan paket`,
-    description1: `Najkompletnije rešenje za veće proslave – tri dvorca za decu svih uzrasta! 
-    ✨ Idealno za rođendane, krštenja i porodične proslave – više zabave, više prostora i sigurna igra.`,
+    Soft Play & Mali Dvorac`,
+    description1: `Kompletna zabava za decu svih uzrasta! 
+    ✨ Idealno za rođendane, krštenja i porodične proslave, u zatvorenom i na otvorenom.`,
     description2: `
     👤 Montaža i osoba za bezbedno korišćenje
 
     📍 Dostupno za iznajmljivanje u: Novom Sadu i širom Srbije
 
     `,
-    price: `💶 360€`,
-    age1: `BubbleHouse 2-6 god.`,
+    price: `💶 340€`,
+    age1: `Soft Play 1-12 god.`,
     age2: `Mali Dvorac 1–6 god.`,
     age3: `Veliki Dvorac 2-10 god`,
-    time1: `BubbleHouse 3h`,
-    time2: `Dvorci 4h`,
+    time1: `Soft Play 4h`,
+    time2: `Mali Dvorac 4h`,
   },
 ];
